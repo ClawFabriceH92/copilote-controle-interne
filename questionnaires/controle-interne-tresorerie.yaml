@@ -1,0 +1,72 @@
+# Questionnaire de démonstration — contrôle interne du cycle trésorerie.
+nom: Contrôle interne — cycle trésorerie
+version: 1.0
+source: Trame type cabinet (à valider)
+duree_cible_min: 35
+participants_attendus: [Gérant, Comptable, Responsable administratif]
+
+sections:
+  - titre: Comptes bancaires et habilitations
+    questions:
+      - id: BAN-01
+        question: Qui est titulaire des pouvoirs sur les comptes bancaires, et à partir de quel montant un second signataire est-il requis ?
+        attendu: Liste des signataires et seuils par compte
+        relance: Est-ce formalisé auprès de la banque ?
+        mots_cles: [signature, pouvoir, banque, seuil, double signature]
+      - id: BAN-02
+        question: Existe-t-il des cartes bancaires et, si oui, qui les détient et quels sont les plafonds ?
+        attendu: Détenteurs, plafonds, justificatifs des dépenses
+        relance: Comment sont justifiés les retraits et paiements par carte ?
+        mots_cles: [carte bancaire, plafond, retrait, dépense]
+      - id: BAN-03
+        question: Comment sont gérés les accès bancaires en ligne et les moyens d'authentification ?
+        attendu: Titulaires des accès, séparation des rôles, validation des virements
+        mots_cles: [accès en ligne, internet, validation virement, token]
+
+  - titre: Règlements et séparation des tâches
+    questions:
+      - id: REG-01
+        question: Comment sont préparés et validés les fichiers de virements fournisseurs ?
+        attendu: Préparation, contrôle, nombre de valideurs
+        relance: Une seule personne peut-elle préparer et valider un virement ?
+        mots_cles: [virement, fichier, validation, fournisseur]
+      - id: REG-02
+        question: Qui saisit les règlements en comptabilité et qui contrôle cette saisie ?
+        attendu: Séparation saisie / contrôle
+        mots_cles: [saisie, règlement, rapprochement, contrôle]
+      - id: REG-03
+        question: Le rapprochement bancaire est-il réalisé mensuellement, par qui, et comment est-il validé ?
+        attendu: Responsable, fréquence, validation, traitement des écarts
+        relance: Combien d'écarts non justifiés à ce jour ?
+        mots_cles: [rapprochement, relevé bancaire, écart, mensuel]
+
+  - titre: Prévisions et suivi
+    questions:
+      - id: PRE-01
+        question: Existe-t-il un suivi de trésorerie prévisionnel, à quelle fréquence est-il mis à jour ?
+        attendu: Outil, horizon, responsable
+        mots_cles: [prévisionnel, trésorerie, budget, plan de trésorerie]
+      - id: PRE-02
+        question: Comment sont identifiées les difficultés de trésorerie ou les ruptures prévisibles ?
+        attendu: Indicateurs et seuils d'alerte
+        mots_cles: [alerte, découvert, difficulté, rupture]
+      - id: PRE-03
+        question: Comment sont gérés les comptes d'attente et les opérations non affectées en banque ?
+        attendu: Délai de traitement, responsable
+        relance: Quel est le solde de ces comptes aujourd'hui ?
+        mots_cles: [compte d'attente, non affecté, en attente, 471, 472]
+
+  - titre: Placements, financements et anomalies
+    questions:
+      - id: FIN-01
+        question: Existe-t-il des placements, comptes à terme ou lignes de crédit, et comment sont-ils suivis ?
+        attendu: Inventaire, conditions, suivi des échéances
+        mots_cles: [placement, compte à terme, crédit, emprunt, ligne]
+      - id: FIN-02
+        question: Comment sont contrôlés les frais bancaires et les intérêts ?
+        attendu: Contrôle périodique, contestation
+        mots_cles: [frais bancaires, intérêts, commission]
+      - id: FIN-03
+        question: Comment sont traitées les anomalies bancaires (rejet de prélèvement, impayé, fraude suspectée) ?
+        attendu: Circuit d'alerte et traces
+        mots_cles: [rejet, impayé, anomalie, fraude, opposition]

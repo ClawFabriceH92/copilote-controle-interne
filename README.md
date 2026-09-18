@@ -49,4 +49,7 @@ transcription live (whisper) ──► Apparieur ──► citations horodatées
 
 ## État du projet
 
-Repo initialisé le 18/09/2026. Spécification détaillée : `docs/SPEC.md`. Aucun code applicatif avant validation du périmètre et de l'interface.
+- Cadrage validé le 18/09/2026 (décisions en tête de `docs/SPEC.md`) : application distincte alimentée par le moteur audio de `transcripto-stream`, co-pilote complet, aucune infrastructure en v1, audio au choix en fin de séance.
+- Dépôt initialisé le 18/09/2026 : spécification, maquette d'interface, premières trames types (achats, paie, trésorerie).
+- Prochaine étape : compléter la bibliothèque de trames (ventes, immobilisations, stocks, entretien de prise de connaissance), puis extraire le moteur audio en module partagé et construire la première version testable sur une séance réelle de 45 minutes.
+- Aucun code applicatif avant validation des trames et de l'interface.

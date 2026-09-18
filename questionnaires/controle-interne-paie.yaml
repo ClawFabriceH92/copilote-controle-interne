@@ -1,0 +1,75 @@
+# Questionnaire de démonstration — contrôle interne du cycle paie.
+nom: Contrôle interne — cycle paie et personnel
+version: 1.0
+source: Trame type cabinet (à valider)
+duree_cible_min: 40
+participants_attendus: [Responsable paie, DRH ou gérant]
+
+sections:
+  - titre: Entrées et sorties du personnel
+    questions:
+      - id: ENT-01
+        question: Qui autorise une embauche, et existe-t-il une trace écrite de cette autorisation avant l'entrée en paie ?
+        attendu: Nom de l'autorité + support de l'autorisation (contrat, mail, bon)
+        relance: Comment le service paie sait-il qu'une embauche est autorisée ?
+        mots_cles: [embauche, autorisation, contrat, validation]
+      - id: ENT-02
+        question: Comment sont transmises au service paie les modifications de contrat (salaire, temps de travail, avenant) ?
+        attendu: Circuit de transmission et contrôle avant intégration
+        relance: Existe-t-il un double contrôle avant la mise à jour du bulletin ?
+        mots_cles: [avenant, modification, salaire, augmentation, temps de travail]
+      - id: ENT-03
+        question: Comment s'assure-t-on qu'un salarié sorti ne figure plus en paie et que le solde de tout compte est complet ?
+        attendu: Procédure de sortie + vérification du solde
+        relance: Qui contrôle le solde de tout compte ?
+        mots_cles: [départ, sortie, solde de tout compte, radiation]
+
+  - titre: Éléments variables et contrôles du calcul
+    questions:
+      - id: VAR-01
+        question: Comment sont saisies et contrôlées les heures supplémentaires ou les variables de paie ?
+        attendu: Source de l'information, saisie, validation par un responsable
+        relance: Qui valide avant intégration dans le bulletin ?
+        mots_cles: [heures supplémentaires, variable, prime, saisie, validation]
+      - id: VAR-02
+        question: Existe-t-il un contrôle des bulletins avant paiement, et sur quoi porte-t-il ?
+        attendu: Nature du contrôle (variation, brut à brut, effectif) et trace
+        relance: Sur quel support gardez-vous la preuve de ce contrôle ?
+        mots_cles: [contrôle bulletins, variation, brut, révision paie]
+      - id: VAR-03
+        question: Comment sont traitées les absences, arrêts de travail et subrogations ?
+        attendu: Circuit, justificatifs, impact paie
+        mots_cles: [absence, arrêt de travail, maladie, subrogation, IJSS]
+
+  - titre: Déclarations, paiements et rapprochements
+    questions:
+      - id: DEC-01
+        question: Qui prépare les déclarations sociales, qui les valide, et qui les transmet ?
+        attendu: Séparation préparation / validation / transmission
+        relance: La même personne peut-elle préparer et transmettre ?
+        mots_cles: [DSN, déclaration, URSSAF, transmission, validation]
+      - id: DEC-02
+        question: Comment est contrôlé le rapprochement entre les virements de salaires, le journal de paie et le fichier bancaire ?
+        attendu: Description du rapprochement et périodicité
+        relance: Que faites-vous si le total du virement diffère du journal ?
+        mots_cles: [rapprochement, virement, journal de paie, total]
+      - id: DEC-03
+        question: Comment sont suivies les charges sociales à payer et les échéances ?
+        attendu: Outil de suivi, calendrier, responsable
+        mots_cles: [charges sociales, échéance, suivi, paiement]
+
+  - titre: Accès, confidentialité et anomalies
+    questions:
+      - id: ACC-01
+        question: Qui a accès au logiciel de paie et aux fichiers de virements, et comment les droits sont-ils revus ?
+        attendu: Liste des accès, périodicité de revue, procédure de retrait
+        relance: Comment retirez-vous l'accès quand quelqu'un quitte le cabinet ou change de poste ?
+        mots_cles: [accès, droit, habilitation, profil, mot de passe]
+      - id: ACC-02
+        question: Comment sont communiqués les bulletins de paie et protégées les données personnelles ?
+        attendu: Mode de diffusion et restrictions
+        mots_cles: [bulletin de paie, diffusion, confidentialité, données personnelles]
+      - id: ACC-03
+        question: Existe-t-il un suivi des litiges ou réclamations de salariés, et qui le tient ?
+        attendu: Support, responsable, fréquence
+        mots_cles: [litige, réclamation, contestation, rappel de salaire]

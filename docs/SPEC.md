@@ -1,5 +1,18 @@
 # Spécification — Copilote Contrôle Interne
 
+## 0. Décisions de cadrage (validées le 18/09/2026)
+
+| Sujet | Décision |
+|---|---|
+| Public | Collaborateurs débutants du cabinet, plusieurs personnes ; questionnaires fournis par le cabinet |
+| Support | **Application distincte** (le public et l'écran principal diffèrent de `transcripto-stream`), alimentée par le **même moteur audio/STT**, à extraire en module partagé. L'outil de production existant n'est pas modifié. |
+| Questionnaires | Rien de formalisé aujourd'hui : le cabinet part de **trames types** fournies avec l'app, dans un fichier simple éditable et versionné (pas figé dans le code) |
+| Audio de séance | **Choix proposé à la fin de la séance** : conserver, purger après validation du rapport (30/60/90 j), ou effacer. Politique par défaut réglée par le cabinet. |
+| Premier livrable | **Co-pilote complet** (transcription live, cochage automatique, relances, rapport), validé tôt sur une **vraie séance de 45 minutes** |
+| Circulation | **Aucune infrastructure en v1** : tout sur l'appareil, partage manuel (mail, Teams). Synchronisation serveur plus tard, si le besoin est confirmé par l'usage. |
+
+Conséquence pratique : les questionnaires sont mis à jour par import d'un fichier, sans republier l'application ; on préparera une synchronisation depuis le cabinet en v2, mais elle n'est pas un préalable.
+
 ## 1. Le problème à résoudre
 
 Un collaborateur débutant reçoit une procédure de contrôle interne (questionnaire ou programme de travail). En séance, trois échecs classiques :
@@ -104,9 +117,9 @@ Règle d'interface : **un junior ne doit jamais avoir à quitter son entretien d
 
 Dépôt dédié, APK signé publié en GitHub Release, mise à jour automatique (voir `appupdater`), icône propre, numéro de version sur chaque livrable.
 
-## 9. Questions ouvertes
+## 9. Questions ouvertes (historique)
 
-1. Support : Android local (recommandé, réutilise `transcripto-stream`) ou web hébergé au cabinet ?
-2. Questionnaire réel de référence : lequel, sous quel format (Word, Excel, papier) ?
-3. Audio conservé ou seulement la transcription ?
-4. Premier livrable : co-pilote de séance complet, ou d'abord checklist + transcription + rapport ?
+1. Support : Android local (recommandé, réutilise `transcripto-stream`) ou web hébergé au cabinet ? → **tranché : app distincte, moteur partagé**
+2. Questionnaire réel de référence : lequel, sous quel format (Word, Excel, papier) ? → **tranché : trames types construites par nous**
+3. Audio conservé ou seulement la transcription ? → **tranché : choix proposé en fin de séance**
+4. Premier livrable : co-pilote de séance complet, ou d'abord checklist + transcription + rapport ? → **tranché : co-pilote complet**
