@@ -1,0 +1,777 @@
+{
+ "id": "tresorerie",
+ "nom": "Contrôle interne — cycle trésorerie",
+ "version": "2.0",
+ "source": "Trame type cabinet (à valider)",
+ "dureeCibleMin": 55,
+ "participantsAttendus": [
+  "Gérant",
+  "Comptable",
+  "Responsable administratif et financier"
+ ],
+ "nbQuestions": 50,
+ "sections": [
+  {
+   "titre": "Comptes bancaires, mandats et habilitations",
+   "questions": [
+    {
+     "id": "BAN-01",
+     "question": "Qui est titulaire des pouvoirs sur les comptes bancaires, et à partir de quel montant un second signataire est-il requis ?",
+     "attendu": "Liste des signataires et seuils par compte",
+     "relance": "Est-ce formalisé auprès de la banque ?",
+     "motsCles": [
+      "signature",
+      "pouvoir",
+      "banque",
+      "seuil",
+      "doublesignature"
+     ],
+     "pieces": [
+      "mandat bancaire"
+     ]
+    },
+    {
+     "id": "BAN-02",
+     "question": "Tenez-vous un inventaire de tous les comptes bancaires ouverts, avec leur banque, leur objet et leur signataire ?",
+     "attendu": "Oui/non, date de mise à jour, exhaustivité de la liste",
+     "relance": "Qui vérifie que la liste est complète et à jour ?",
+     "motsCles": [
+      "inventaire",
+      "comptebancaire",
+      "liste",
+      "banque",
+      "ajour"
+     ],
+     "pieces": [
+      "liste des comptes bancaires"
+     ]
+    },
+    {
+     "id": "BAN-03",
+     "question": "Qui détient les accès de banque en ligne, et comment sont-ils attribués et retirés ?",
+     "attendu": "Liste des habilités, procédure d'attribution et de retrait",
+     "relance": "Comment retirez-vous l'accès quand une personne quitte l'entreprise ?",
+     "motsCles": [
+      "accesenligne",
+      "habilitation",
+      "identifiant",
+      "retrait",
+      "banqueenligne"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "BAN-04",
+     "question": "Qui décide de l'ouverture ou de la clôture d'un compte bancaire, et avec quelle autorisation ?",
+     "attendu": "Nom du décideur et formalisation de l'autorisation",
+     "relance": "Y a-t-il une trace écrite de cette décision ?",
+     "motsCles": [
+      "ouverture",
+      "cloture",
+      "compte",
+      "autorisation",
+      "decision"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "BAN-05",
+     "question": "Comment les mandats bancaires sont-ils mis à jour lors d'un changement de dirigeant ou de signataire ?",
+     "attendu": "Procédure de mise à jour et délai constaté",
+     "relance": "Quand le dernier changement a-t-il été répercuté auprès de la banque ?",
+     "motsCles": [
+      "mandat",
+      "changement",
+      "dirigeant",
+      "signataire",
+      "miseajour"
+     ],
+     "pieces": [
+      "mandat bancaire"
+     ]
+    }
+   ]
+  },
+  {
+   "titre": "Séparation des tâches et préparation des règlements",
+   "questions": [
+    {
+     "id": "SEP-01",
+     "question": "La personne qui prépare un virement est-elle différente de celle qui le valide en banque ?",
+     "attendu": "Oui/non, détail des rôles pour un virement type",
+     "relance": "Une seule personne peut-elle à la fois préparer et valider ?",
+     "motsCles": [
+      "preparation",
+      "validation",
+      "virement",
+      "separation",
+      "roles"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SEP-02",
+     "question": "Qui saisit les règlements en comptabilité, et qui contrôle cette saisie ?",
+     "attendu": "Séparation saisie / contrôle, nom des personnes",
+     "relance": "Comment est matérialisé ce contrôle ?",
+     "motsCles": [
+      "saisie",
+      "reglement",
+      "controle",
+      "comptabilite",
+      "separation"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SEP-03",
+     "question": "Comment est préparé le fichier de virements fournisseurs, et qui en vérifie le contenu avant envoi ?",
+     "attendu": "Étapes de préparation, contrôle des RIB et montants, valideur",
+     "relance": "Comparez-vous le total du fichier au journal des achats ?",
+     "motsCles": [
+      "fichier",
+      "virementfournisseur",
+      "rib",
+      "controle",
+      "total"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SEP-04",
+     "question": "Comment sont vérifiés les coordonnées bancaires d'un nouveau bénéficiaire avant le premier paiement ?",
+     "attendu": "Procédure de contrôle du RIB et double validation",
+     "relance": "Qui confirme que le RIB n'a pas été modifié frauduleusement ?",
+     "motsCles": [
+      "beneficiaire",
+      "rib",
+      "coordonnees",
+      "premierpaiement",
+      "verification"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SEP-05",
+     "question": "Les personnes qui encaissent sont-elles distinctes de celles qui enregistrent les paiements ?",
+     "attendu": "Oui/non, répartition des tâches encaissement / enregistrement",
+     "relance": "Donnez un exemple sur une semaine type.",
+     "motsCles": [
+      "encaissement",
+      "enregistrement",
+      "separation",
+      "caisse",
+      "taches"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Encaissements et moyens de paiement clients",
+   "questions": [
+    {
+     "id": "ENC-01",
+     "question": "Quels moyens de paiement acceptez-vous de vos clients, et qui encaisse chaque type ?",
+     "attendu": "Liste des moyens (virement, chèque, carte, espèces) et responsables",
+     "relance": "Y a-t-il des moyens de paiement que vous refusez ?",
+     "motsCles": [
+      "moyendepaiement",
+      "virement",
+      "cheque",
+      "carte",
+      "especes"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ENC-02",
+     "question": "Quel est le circuit des chèques reçus, de leur réception jusqu'à leur remise en banque ?",
+     "attendu": "Étapes, responsable, délai de remise",
+     "relance": "Où sont conservés les chèques en attente de remise ?",
+     "motsCles": [
+      "cheque",
+      "reception",
+      "remiseenbanque",
+      "circuit",
+      "endossement"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ENC-03",
+     "question": "Qui manipule les espèces, et comment leur encaissement est-il tracé ?",
+     "attendu": "Personne habilitée, registre de caisse ou équivalent",
+     "relance": "Existe-t-il un rapprochement entre caisse et comptabilité ?",
+     "motsCles": [
+      "especes",
+      "caisse",
+      "encaissement",
+      "tracabilite",
+      "registre"
+     ],
+     "pieces": [
+      "journal de caisse"
+     ]
+    },
+    {
+     "id": "ENC-04",
+     "question": "Comment sont lettrées les créances clients et rapprochées des encaissements reçus ?",
+     "attendu": "Méthode de lettrage, fréquence, responsable",
+     "relance": "Que faites-vous d'un règlement reçu sans facture identifiée ?",
+     "motsCles": [
+      "lettrage",
+      "creance",
+      "client",
+      "rapprochement",
+      "reglement"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ENC-05",
+     "question": "Les encaissements sont-ils enregistrés en comptabilité le jour même de leur réception ?",
+     "attendu": "Délai d'enregistrement constaté et responsable",
+     "relance": "Qu'est-ce qui peut retarder cet enregistrement ?",
+     "motsCles": [
+      "enregistrement",
+      "jourmeme",
+      "encaissement",
+      "delai",
+      "comptabilite"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Rapprochements bancaires",
+   "questions": [
+    {
+     "id": "RAP-01",
+     "question": "À quelle fréquence réalisez-vous le rapprochement entre vos relevés et votre comptabilité ?",
+     "attendu": "Fréquence effective, responsable, outil utilisé",
+     "relance": "Ce rythme est-il tenu même en période de forte activité ?",
+     "motsCles": [
+      "rapprochementbancaire",
+      "releve",
+      "frequence",
+      "comptabilite",
+      "mensuel"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "RAP-02",
+     "question": "Le rapprochement bancaire est-il réalisé par une personne qui ne saisit pas les règlements ?",
+     "attendu": "Oui/non, nom de la personne, séparation des tâches",
+     "relance": "Qui le fait précisément chez vous ?",
+     "motsCles": [
+      "rapprochement",
+      "saisie",
+      "separation",
+      "independance"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "RAP-03",
+     "question": "Comment sont traités les écarts ou suspens identifiés lors du rapprochement ?",
+     "attendu": "Circuit de traitement, délai, personne responsable",
+     "relance": "Quel est le plus ancien suspens encore ouvert aujourd'hui ?",
+     "motsCles": [
+      "ecart",
+      "suspens",
+      "ecartderapprochement",
+      "traitement",
+      "delai"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "RAP-04",
+     "question": "Comment sont rapprochés les encaissements clients avec les mouvements figurant au relevé ?",
+     "attendu": "Méthode de rapprochement des encaissements, traces",
+     "relance": "Comment identifiez-vous un encaissement dont le libellé est peu explicite ?",
+     "motsCles": [
+      "encaissementclient",
+      "rapprochement",
+      "releve",
+      "libelle"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "RAP-05",
+     "question": "Le rapprochement bancaire est-il validé par un responsable, et en gardez-vous une trace ?",
+     "attendu": "Valideur, preuve de validation, archivage des états",
+     "relance": "Montrez-moi le dernier état de rapprochement validé.",
+     "motsCles": [
+      "validation",
+      "responsable",
+      "etatderapprochement",
+      "archivage",
+      "preuve"
+     ],
+     "pieces": [
+      "état de rapprochement bancaire"
+     ]
+    }
+   ]
+  },
+  {
+   "titre": "Instruments de paiement, cartes et frais bancaires",
+   "questions": [
+    {
+     "id": "INS-01",
+     "question": "Quelles cartes bancaires existent, qui les détient, et quels sont leurs plafonds ?",
+     "attendu": "Liste des cartes, détenteurs, plafonds, usage autorisé",
+     "relance": "Les plafonds ont-ils été revus récemment ?",
+     "motsCles": [
+      "cartebancaire",
+      "detenteur",
+      "plafond",
+      "retrait",
+      "paiement"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "INS-02",
+     "question": "Comment les dépenses payées par carte sont-elles justifiées et rattachées à leur objet ?",
+     "attendu": "Justificatif exigé, rapprochement avec le relevé, responsable",
+     "relance": "Que se passe-t-il si un justificatif manque ?",
+     "motsCles": [
+      "carte",
+      "justificatif",
+      "depense",
+      "releve",
+      "rattachement"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "INS-03",
+     "question": "Comment sont gérés les chéquiers : qui les détient, comment sont-ils rangés et suivis ?",
+     "attendu": "Détenteurs, lieu de conservation, suivi des numéros",
+     "relance": "Avez-vous déjà constaté la perte d'un chéquier ?",
+     "motsCles": [
+      "chequier",
+      "detention",
+      "rangement",
+      "suivi",
+      "numero"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "INS-04",
+     "question": "Comment sont contrôlés les frais bancaires et les commissions prélevées sur vos comptes ?",
+     "attendu": "Contrôle périodique, personne responsable, contestations",
+     "relance": "À quand remonte la dernière vérification des frais ?",
+     "motsCles": [
+      "fraisbancaires",
+      "commission",
+      "controle",
+      "prelevement",
+      "contestation"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "INS-05",
+     "question": "Utilisez-vous d'autres instruments de paiement, comme des virements internationaux ou des cartes d'affaires ?",
+     "attendu": "Inventaire des instruments, conditions d'utilisation, autorisations",
+     "relance": "Qui peut déclencher un virement international ?",
+     "motsCles": [
+      "virementinternational",
+      "carteaffaires",
+      "instrument",
+      "autorisation"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Prévisionnel et pilotage de la trésorerie",
+   "questions": [
+    {
+     "id": "PRE-01",
+     "question": "Disposez-vous d'un prévisionnel de trésorerie, sur quel horizon et mis à jour à quelle fréquence ?",
+     "attendu": "Existence de l'outil, horizon, fréquence de mise à jour",
+     "relance": "Qui est chargé de le mettre à jour ?",
+     "motsCles": [
+      "previsionnel",
+      "tresorerie",
+      "horizon",
+      "miseajour",
+      "plandetresorerie"
+     ],
+     "pieces": [
+      "dernier prévisionnel de trésorerie"
+     ]
+    },
+    {
+     "id": "PRE-02",
+     "question": "Comment anticipez-vous les échéances importantes de dettes et de créances ?",
+     "attendu": "Outil ou calendrier des échéances, responsable",
+     "relance": "Comment êtes-vous alerté avant une échéance ?",
+     "motsCles": [
+      "echeance",
+      "dette",
+      "creance",
+      "calendrier",
+      "alerte"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "PRE-03",
+     "question": "Comment identifiez-vous à l'avance un risque de découvert ou de rupture de trésorerie ?",
+     "attendu": "Indicateurs et seuils d'alerte utilisés",
+     "relance": "Qui est prévenu en premier en cas d'alerte ?",
+     "motsCles": [
+      "decouvert",
+      "rupture",
+      "alerte",
+      "indicateur",
+      "seuil"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "PRE-04",
+     "question": "Qui pilote la trésorerie au quotidien et arbitre entre les paiements à prioriser ?",
+     "attendu": "Nom du pilote, règles de priorisation des paiements",
+     "relance": "Comment arbitrez-vous entre deux fournisseurs à payer le même jour ?",
+     "motsCles": [
+      "pilotage",
+      "arbitrage",
+      "priorisation",
+      "paiement",
+      "quotidien"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "PRE-05",
+     "question": "Le prévisionnel est-il confronté aux réalisations réelles, et qu'en faites-vous ?",
+     "attendu": "Écart prévisionnel / réel, analyse, actions correctives",
+     "relance": "À quand remonte la dernière comparaison ?",
+     "motsCles": [
+      "previsionnel",
+      "reel",
+      "ecart",
+      "analyse",
+      "comparaison"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Financements, placements et covenants",
+   "questions": [
+    {
+     "id": "FIN-01",
+     "question": "Tenez-vous un inventaire de vos emprunts et lignes de crédit, avec leurs conditions et échéances ?",
+     "attendu": "Inventaire complet, taux, échéances, responsable du suivi",
+     "relance": "Qui vérifie que cet inventaire est complet ?",
+     "motsCles": [
+      "emprunt",
+      "lignedecredit",
+      "inventaire",
+      "echeance",
+      "taux"
+     ],
+     "pieces": [
+      "tableau des emprunts"
+     ]
+    },
+    {
+     "id": "FIN-02",
+     "question": "Qui décide de souscrire un nouvel emprunt ou de renégocier une ligne existante ?",
+     "attendu": "Nom du décideur, processus d'autorisation",
+     "relance": "Existe-t-il une trace écrite de cette décision ?",
+     "motsCles": [
+      "emprunt",
+      "renegociation",
+      "decision",
+      "autorisation",
+      "souscription"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FIN-03",
+     "question": "Disposez-vous de placements ou de comptes à terme, et comment sont-ils suivis ?",
+     "attendu": "Inventaire des placements, conditions, suivi des échéances",
+     "relance": "Qui arbitre les placements et selon quels critères ?",
+     "motsCles": [
+      "placement",
+      "compteaterme",
+      "epargne",
+      "suivi",
+      "echeance"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FIN-04",
+     "question": "Comment suivez-vous le respect de vos engagements bancaires ou covenants ?",
+     "attendu": "Suivi des ratios ou clauses, fréquence, responsable",
+     "relance": "Avez-vous déjà reçu une demande de la banque à ce sujet ?",
+     "motsCles": [
+      "covenant",
+      "engagement",
+      "banque",
+      "ratio",
+      "clause"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FIN-05",
+     "question": "Comment sont suivis les intérêts et les remboursements de vos financements en comptabilité ?",
+     "attendu": "Comptabilisation, pointage des échéances, responsable",
+     "relance": "Comment vérifiez-vous le tableau d'amortissement ?",
+     "motsCles": [
+      "interet",
+      "remboursement",
+      "amortissement",
+      "echeance",
+      "comptabilisation"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Comptes d'attente et opérations non affectées",
+   "questions": [
+    {
+     "id": "ATT-01",
+     "question": "Quels comptes d'attente utilisez-vous, et comment les opérations y sont-elles affectées ?",
+     "attendu": "Liste des comptes d'attente, règles d'affectation",
+     "relance": "Qui décide de l'affectation d'une opération ?",
+     "motsCles": [
+      "comptedattente",
+      "affectation",
+      "enattente",
+      "imputation"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ATT-02",
+     "question": "Quel est le délai habituel de traitement d'une opération placée en compte d'attente ?",
+     "attendu": "Délai constaté, personne responsable de l'apurement",
+     "relance": "Quel est le plus ancien élément encore en attente ?",
+     "motsCles": [
+      "delai",
+      "traitement",
+      "apurement",
+      "anciennete",
+      "enattente"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ATT-03",
+     "question": "Qui suit les comptes d'attente, et à quelle fréquence en revoit-il le solde ?",
+     "attendu": "Responsable du suivi, fréquence de revue",
+     "relance": "Quand le solde a-t-il été revu pour la dernière fois ?",
+     "motsCles": [
+      "suivi",
+      "solde",
+      "revue",
+      "frequence",
+      "responsable"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ATT-04",
+     "question": "Comment justifiez-vous les soldes des comptes d'attente à la clôture ?",
+     "attendu": "Détail et justification de chaque solde, documentation",
+     "relance": "Chaque solde est-il expliqué par une pièce ?",
+     "motsCles": [
+      "cloture",
+      "solde",
+      "justification",
+      "detail",
+      "piece"
+     ],
+     "pieces": [
+      "balance des comptes d'attente"
+     ]
+    },
+    {
+     "id": "ATT-05",
+     "question": "Comment sont traitées les opérations non affectées qui subsistent en fin d'exercice ?",
+     "attendu": "Règle de traitement, apurement ou reclassement, trace",
+     "relance": "Que faites-vous d'un montant non identifié après investigation ?",
+     "motsCles": [
+      "nonaffecte",
+      "findexercice",
+      "apurement",
+      "reclassement",
+      "investigation"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Fraude, alertes et incidents",
+   "questions": [
+    {
+     "id": "FRA-01",
+     "question": "Comment détectez-vous une opération inhabituelle ou suspecte sur vos comptes bancaires ?",
+     "attendu": "Dispositif de détection, alertes bancaires, personne qui surveille",
+     "relance": "Qui examine les relevés pour repérer ces opérations ?",
+     "motsCles": [
+      "operationsuspecte",
+      "inhabituel",
+      "detection",
+      "alerte",
+      "surveillance"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FRA-02",
+     "question": "Comment sont traités les rejets de prélèvements, impayés ou incidents de paiement clients ?",
+     "attendu": "Circuit de traitement, délai, responsable",
+     "relance": "Comment relancez-vous le client concerné ?",
+     "motsCles": [
+      "rejet",
+      "prelevement",
+      "impaye",
+      "incident",
+      "relance"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FRA-03",
+     "question": "Quel est le circuit d'alerte en cas de suspicion de fraude interne ou externe sur la trésorerie ?",
+     "attendu": "Personne à alerter, escalade, traçabilité des faits",
+     "relance": "À qui remonte-t-on une fraude présumée ?",
+     "motsCles": [
+      "fraude",
+      "alerte",
+      "suspicion",
+      "escalade",
+      "signalement"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FRA-04",
+     "question": "Comment procédez-vous en cas de perte ou de vol d'un moyen de paiement ?",
+     "attendu": "Procédure d'opposition, délai, personne habilitée",
+     "relance": "Qui peut faire opposition auprès de la banque ?",
+     "motsCles": [
+      "perte",
+      "vol",
+      "opposition",
+      "carte",
+      "chequier"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FRA-05",
+     "question": "Tenez-vous un registre des incidents de trésorerie et des actions correctives engagées ?",
+     "attendu": "Existence d'un suivi, nature des incidents, actions menées",
+     "relance": "Quel a été le dernier incident consigné ?",
+     "motsCles": [
+      "incident",
+      "registre",
+      "actioncorrective",
+      "suivi",
+      "tresorerie"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Clôture et justification des soldes bancaires",
+   "questions": [
+    {
+     "id": "CLO-01",
+     "question": "Comment justifiez-vous le solde de chaque compte bancaire en comptabilité à la clôture ?",
+     "attendu": "Rapprochement du solde comptable et du solde bancaire, preuve",
+     "relance": "Tous les comptes sont-ils justifiés, même les moins utilisés ?",
+     "motsCles": [
+      "solde",
+      "cloture",
+      "justification",
+      "rapprochement",
+      "comptebancaire"
+     ],
+     "pieces": [
+      "états de rapprochement de clôture"
+     ]
+    },
+    {
+     "id": "CLO-02",
+     "question": "Comment sont recensés les chèques émis non débités ou anciens à la clôture ?",
+     "attendu": "Liste des chèques en circulation, ancienneté, traitement",
+     "relance": "Que faites-vous des chèques non présentés depuis longtemps ?",
+     "motsCles": [
+      "chequenondebite",
+      "chequeencirculation",
+      "ancien",
+      "cloture"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "CLO-03",
+     "question": "Comment sont traités les virements internes ou transferts entre vos propres comptes en fin d'exercice ?",
+     "attendu": "Traçabilité des transferts, cohérence des soldes croisés",
+     "relance": "Comment vérifiez-vous qu'aucun transfert n'est compté deux fois ?",
+     "motsCles": [
+      "virementinterne",
+      "transfert",
+      "compteacompte",
+      "findexercice"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "CLO-04",
+     "question": "Qui valide la justification des soldes bancaires avant l'arrêté des comptes ?",
+     "attendu": "Nom du valideur, niveau de revue, trace de validation",
+     "relance": "Le gérant revoit-il lui-même ces justifications ?",
+     "motsCles": [
+      "validation",
+      "arretedescomptes",
+      "solde",
+      "revue",
+      "gerant"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "CLO-05",
+     "question": "Comment assurez-vous la cohérence entre la trésorerie comptable et les soldes bancaires en fin de période ?",
+     "attendu": "Méthode de contrôle, écarts résiduels, responsable",
+     "relance": "Quel écart, s'il existe, subsistait à la dernière clôture ?",
+     "motsCles": [
+      "coherence",
+      "tresorerie",
+      "soldebancaire",
+      "ecart",
+      "findeperiode"
+     ],
+     "pieces": []
+    }
+   ]
+  }
+ ]
+}

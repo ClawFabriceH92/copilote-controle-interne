@@ -1,0 +1,798 @@
+{
+ "id": "achats",
+ "nom": "Contrôle interne — cycle achats",
+ "version": "2.0",
+ "source": "Trame type cabinet (à valider)",
+ "dureeCibleMin": 60,
+ "participantsAttendus": [
+  "Responsable achats",
+  "Comptable fournisseurs",
+  "Gérant"
+ ],
+ "nbQuestions": 52,
+ "sections": [
+  {
+   "titre": "Organisation et délégations",
+   "questions": [
+    {
+     "id": "ORG-01",
+     "question": "Sur les achats, qui donne la validation définitive d'un engagement fournisseur, et à partir de quel seuil ce niveau de validation s'applique-t-il ?",
+     "attendu": "Nom du valideur et seuil exprimé en euros",
+     "relance": "Et au-delà de ce seuil, qui intervient ?",
+     "motsCles": [
+      "seuil",
+      "validation",
+      "engagement",
+      "devis",
+      "bondecommande"
+     ],
+     "pieces": [
+      "matrice de délégations"
+     ]
+    },
+    {
+     "id": "ORG-02",
+     "question": "Existe-t-il une matrice de délégations écrite qui récapitule les niveaux de validation des achats, et est-elle tenue à jour ?",
+     "attendu": "Oui/non, date de dernière mise à jour, lieu de classement",
+     "relance": "Quand a-t-elle été mise à jour pour la dernière fois ?",
+     "motsCles": [
+      "matrice",
+      "delegation",
+      "miseajour",
+      "document"
+     ],
+     "pieces": [
+      "matrice de délégations"
+     ]
+    },
+    {
+     "id": "ORG-03",
+     "question": "Lorsque le valideur est absent, qui exerce sa fonction à sa place, et de quelle manière cette substitution est-elle formalisée ?",
+     "attendu": "Nom du remplaçant et règle écrite",
+     "relance": "Est-ce prévu par écrit quelque part ?",
+     "motsCles": [
+      "absence",
+      "remplacant",
+      "interim",
+      "suppleant",
+      "delegation"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ORG-04",
+     "question": "Quels types d'achats peuvent être engagés sans passer par un bon de commande, et dans quelle limite de montant ?",
+     "attendu": "Liste des cas autorisés et seuil en euros",
+     "relance": "Qui autorise ces achats hors circuit ?",
+     "motsCles": [
+      "sansbondecommande",
+      "limite",
+      "derogation",
+      "achatdirect"
+     ],
+     "pieces": [
+      "liste des dérogations"
+     ]
+    },
+    {
+     "id": "ORG-05",
+     "question": "Comment la direction est-elle tenue informée des engagements pris sur les achats importants, et sur quel support cette information remonte-t-elle ?",
+     "attendu": "Circuit d'information, seuil de remontée, support utilisé",
+     "relance": "Donnez un exemple d'achat remonté récemment.",
+     "motsCles": [
+      "information",
+      "direction",
+      "engagement",
+      "reporting",
+      "achatimportant"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Séparation des tâches et habilitations",
+   "questions": [
+    {
+     "id": "SEP-01",
+     "question": "La personne qui commande est-elle différente de celle qui valide et de celle qui paie ?",
+     "attendu": "Oui/non, avec le détail des rôles de chacun",
+     "relance": "Donnez un exemple concret sur une facture récente.",
+     "motsCles": [
+      "separation",
+      "commande",
+      "paiement",
+      "valide",
+      "saisie"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SEP-02",
+     "question": "Qui a le droit de créer ou de modifier une fiche fournisseur dans l'outil, et qui contrôle ces modifications après coup ?",
+     "attendu": "Liste des profils habilités et contrôle réalisé",
+     "relance": "Comment vérifiez-vous qu'aucune fiche n'a été créée sans accord ?",
+     "motsCles": [
+      "creation",
+      "fichefournisseur",
+      "habilitation",
+      "profil",
+      "modification"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SEP-03",
+     "question": "La personne qui saisit les factures fournisseurs peut-elle aussi préparer les règlements à effectuer, ou ces deux étapes sont-elles séparées ?",
+     "attendu": "Oui/non et nom de chaque intervenant du circuit",
+     "relance": "Qui fait quoi exactement dans le circuit ?",
+     "motsCles": [
+      "saisiefacture",
+      "preparationreglement",
+      "separation",
+      "reglement",
+      "facture"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SEP-04",
+     "question": "Qui saisit les règlements en comptabilité, et qui réalise le rapprochement bancaire avec les relevés de la banque ?",
+     "attendu": "Noms distincts, ou justification du cumul éventuel",
+     "relance": "La même personne fait-elle les deux ?",
+     "motsCles": [
+      "saisiereglement",
+      "rapprochementbancaire",
+      "separation",
+      "relevebancaire"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SEP-05",
+     "question": "Comment les habilitations et les accès sont-ils revus lorsqu'une personne change de poste ou quitte l'entreprise ?",
+     "attendu": "Procédure de retrait des accès et périodicité de revue",
+     "relance": "Quand avez-vous revu les accès pour la dernière fois ?",
+     "motsCles": [
+      "habilitation",
+      "acces",
+      "revue",
+      "depart",
+      "changementdeposte"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Référentiel fournisseurs et création de fiches",
+   "questions": [
+    {
+     "id": "FOU-01",
+     "question": "Avant de créer une nouvelle fiche fournisseur, quels justificatifs demandez-vous systématiquement pour compléter le dossier ?",
+     "attendu": "Liste des documents demandés (SIREN, RIB, coordonnées)",
+     "relance": "Qui vérifie ces justificatifs ?",
+     "motsCles": [
+      "fichefournisseur",
+      "siren",
+      "rib",
+      "justificatif",
+      "creation"
+     ],
+     "pieces": [
+      "fiche fournisseur type"
+     ]
+    },
+    {
+     "id": "FOU-02",
+     "question": "Comment vous assurez-vous que le RIB communiqué appartient bien au fournisseur concerné, et non à une autre société ?",
+     "attendu": "Contrôle de cohérence et confirmation auprès du fournisseur",
+     "relance": "Avez-vous déjà eu un cas de RIB frauduleux ?",
+     "motsCles": [
+      "rib",
+      "iban",
+      "fraude",
+      "verification",
+      "coordonneesbancaires"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FOU-03",
+     "question": "Qui est responsable du référentiel fournisseurs, et qui est chargé de le mettre à jour au quotidien ?",
+     "attendu": "Nom du responsable et fréquence de mise à jour",
+     "relance": "Comment la fiche est-elle actualisée lors d'un changement d'adresse ou de banque ?",
+     "motsCles": [
+      "referentiel",
+      "basefournisseur",
+      "miseajour",
+      "responsable"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FOU-04",
+     "question": "Comment détectez-vous les doublons de fiches fournisseurs dans votre base, et qui s'en occupe régulièrement ?",
+     "attendu": "Outil ou revue périodique et critères de détection",
+     "relance": "Combien de doublons avez-vous identifiés récemment ?",
+     "motsCles": [
+      "doublon",
+      "fiche",
+      "detection",
+      "rapprochement"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FOU-05",
+     "question": "Comment gérez-vous les fournisseurs devenus inactifs ou qui n'ont plus eu de flux depuis longtemps ?",
+     "attendu": "Critère d'inactivité et action (clôture, désactivation)",
+     "relance": "À quelle fréquence nettoyez-vous la base ?",
+     "motsCles": [
+      "inactif",
+      "cloture",
+      "desactivation",
+      "nettoyage",
+      "base"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Commande et engagement",
+   "questions": [
+    {
+     "id": "CMD-01",
+     "question": "Avant de passer commande, comment un besoin d'achat est-il formalisé et quel support permet de le tracer ?",
+     "attendu": "Support de demande et circuit d'autorisation",
+     "relance": "Qui autorise la demande avant l'envoi au fournisseur ?",
+     "motsCles": [
+      "demandedachat",
+      "bondecommande",
+      "besoin",
+      "autorisation"
+     ],
+     "pieces": [
+      "bon de commande type"
+     ]
+    },
+    {
+     "id": "CMD-02",
+     "question": "Le bon de commande est-il systématique, et à partir de quel montant devient-il obligatoire ?",
+     "attendu": "Règle d'émission et seuil en euros",
+     "relance": "Que se passe-t-il pour les achats en dessous de ce seuil ?",
+     "motsCles": [
+      "bondecommande",
+      "seuil",
+      "obligatoire",
+      "emission"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "CMD-03",
+     "question": "Qui signe ou valide le bon de commande avant son envoi au fournisseur, et comment cette signature est-elle matérialisée ?",
+     "attendu": "Nom du signataire et conformité à la délégation",
+     "relance": "Le signataire vérifie-t-il le budget disponible ?",
+     "motsCles": [
+      "signature",
+      "validation",
+      "bondecommande",
+      "signataire"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "CMD-04",
+     "question": "Avant de choisir un fournisseur, comment comparez-vous les différentes offres ou devis reçus, et quels critères retenez-vous ?",
+     "attendu": "Mise en concurrence, seuil et critères de choix",
+     "relance": "À partir de quel montant mettez-vous en concurrence ?",
+     "motsCles": [
+      "devis",
+      "offre",
+      "miseenconcurrence",
+      "comparaison",
+      "choix"
+     ],
+     "pieces": [
+      "devis comparés"
+     ]
+    },
+    {
+     "id": "CMD-05",
+     "question": "Avez-vous signé des contrats-cadres ou négocié des prix avec certains fournisseurs, et comment ces tarifs sont-ils gérés ?",
+     "attendu": "Liste des contrats et gestion des tarifs",
+     "relance": "Comment les prix négociés sont-ils tenus à jour ?",
+     "motsCles": [
+      "contratcadre",
+      "prixnegocie",
+      "tarif",
+      "negociation"
+     ],
+     "pieces": [
+      "contrat-cadre"
+     ]
+    },
+    {
+     "id": "CMD-06",
+     "question": "Comment suivez-vous les bons de commande encore en cours et les commandes qui n'ont pas encore été livrées ?",
+     "attendu": "Outil de suivi et revue des encours",
+     "relance": "Qui relance les commandes en retard ?",
+     "motsCles": [
+      "suivi",
+      "bondecommande",
+      "encours",
+      "nonlivre",
+      "relance"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Réception et constatation du service fait",
+   "questions": [
+    {
+     "id": "REC-01",
+     "question": "Qui est chargé de réceptionner les livraisons ou de constater la bonne exécution d'une prestation commandée ?",
+     "attendu": "Nom du récepteur et procédure de constatation",
+     "relance": "Comment le service fait est-il matérialisé ?",
+     "motsCles": [
+      "reception",
+      "livraison",
+      "servicefait",
+      "constatation",
+      "bondelivraison"
+     ],
+     "pieces": [
+      "bon de réception"
+     ]
+    },
+    {
+     "id": "REC-02",
+     "question": "Au moment de la réception, comment contrôlez-vous les quantités livrées et la qualité des produits ou services reçus ?",
+     "attendu": "Description du contrôle et traçabilité des réserves",
+     "relance": "Que faites-vous en cas d'écart entre livré et commandé ?",
+     "motsCles": [
+      "quantite",
+      "qualite",
+      "controle",
+      "reception",
+      "ecart"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "REC-03",
+     "question": "Existe-t-il un bon de réception ou un état de service fait, et est-il systématique ?",
+     "attendu": "Support utilisé et son exhaustivité",
+     "relance": "Est-il rapproché du bon de commande ?",
+     "motsCles": [
+      "bondereception",
+      "servicefait",
+      "rapprochement",
+      "support"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "REC-04",
+     "question": "Pour une prestation de services sans livraison matérielle, comment constatez-vous que le service a bien été exécuté ?",
+     "attendu": "Procédure de validation et personne qui atteste",
+     "relance": "Qui atteste que la prestation a bien été exécutée ?",
+     "motsCles": [
+      "prestation",
+      "service",
+      "validation",
+      "attestation",
+      "execution"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "REC-05",
+     "question": "Comment traitez-vous les réceptions partielles ou les livraisons incomplètes, et comment en gardez-vous la trace ?",
+     "attendu": "Circuit et enregistrement des reliquats",
+     "relance": "Comment évitez-vous de payer deux fois le même lot ?",
+     "motsCles": [
+      "receptionpartielle",
+      "livraisonincomplete",
+      "reliquat",
+      "doublepaiement"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Factures, contrôle des trois voies et comptabilisation",
+   "questions": [
+    {
+     "id": "FAC-01",
+     "question": "Quel contrôle est réalisé entre le bon de commande, la réception et la facture ?",
+     "attendu": "Description du rapprochement trois voies et preuve conservée",
+     "relance": "Que se passe-t-il si l'un des trois éléments manque ?",
+     "motsCles": [
+      "troisvoies",
+      "rapprochement",
+      "bondecommande",
+      "reception",
+      "facture"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FAC-02",
+     "question": "Comment contrôlez-vous les prix unitaires et les quantités facturés par rapport à ce qui a été commandé ?",
+     "attendu": "Nature du contrôle et référence aux tarifs négociés",
+     "relance": "Qui vérifie la cohérence avec les tarifs contractuels ?",
+     "motsCles": [
+      "prix",
+      "quantite",
+      "facture",
+      "tarif",
+      "ecart"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FAC-03",
+     "question": "Comment vérifiez-vous le calcul de la TVA et l'exactitude des mentions de la facture ?",
+     "attendu": "Contrôle de la TVA, des taux et des mentions obligatoires",
+     "relance": "Qui contrôle les taux appliqués ?",
+     "motsCles": [
+      "tva",
+      "taux",
+      "mention",
+      "facture",
+      "controle"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FAC-04",
+     "question": "Comment traitez-vous les factures qui arrivent sans qu'aucun bon de commande n'ait été émis ?",
+     "attendu": "Procédure dérogatoire, seuil et validation",
+     "relance": "Combien de cas de ce type sur les six derniers mois ?",
+     "motsCles": [
+      "sansbondecommande",
+      "derogation",
+      "horscircuit",
+      "validation"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FAC-05",
+     "question": "Qui saisit les factures en comptabilité, et comment vérifiez-vous que l'imputation analytique retenue est la bonne ?",
+     "attendu": "Nom du saisisseur et contrôle de l'imputation",
+     "relance": "Comment sont codées les factures concernant plusieurs postes ?",
+     "motsCles": [
+      "saisie",
+      "imputation",
+      "analytique",
+      "codification",
+      "compte"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "FAC-06",
+     "question": "Comment vous assurez-vous qu'aucune facture reçue ne se perd et qu'aucune n'est saisie deux fois ?",
+     "attendu": "Numérotation, contrôle des doublons et suivi des flux",
+     "relance": "Comment détectez-vous une facture en double ?",
+     "motsCles": [
+      "doublon",
+      "numerotation",
+      "facture",
+      "perte",
+      "enregistrement"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Règlements et moyens de paiement",
+   "questions": [
+    {
+     "id": "REG-01",
+     "question": "Comment sont préparés les règlements destinés aux fournisseurs, et qui les valide avant que le paiement soit émis ?",
+     "attendu": "Circuit de préparation, séparation de la validation et seuils",
+     "relance": "Une seule personne peut-elle préparer et valider un paiement ?",
+     "motsCles": [
+      "reglement",
+      "validation",
+      "virement",
+      "preparation",
+      "paiement"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "REG-02",
+     "question": "Comment suivez-vous les échéances de paiement, et profitez-vous des éventuels escomptes proposés par les fournisseurs ?",
+     "attendu": "Calendrier de paiement, suivi des échéances et des escomptes",
+     "relance": "Comment évitez-vous les pénalités de retard ?",
+     "motsCles": [
+      "echeance",
+      "paiement",
+      "escompte",
+      "retard",
+      "penalite"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "REG-03",
+     "question": "Qui détient les moyens de paiement de l'entreprise, comme les cartes ou les chéquiers, et comment sont-ils contrôlés ?",
+     "attendu": "Détenteurs, plafonds et justificatifs des dépenses",
+     "relance": "Comment sont justifiées les dépenses par carte ?",
+     "motsCles": [
+      "carte",
+      "cheque",
+      "plafond",
+      "detenteur",
+      "depense"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "REG-04",
+     "question": "Avant d'émettre un paiement, comment vérifiez-vous qu'il correspond bien à la facture fournisseur validée ?",
+     "attendu": "Contrôle avant paiement et rapprochement facture/règlement",
+     "relance": "Que faites-vous si le montant du virement diffère de la facture ?",
+     "motsCles": [
+      "rapprochement",
+      "facture",
+      "reglement",
+      "montant",
+      "controle"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "REG-05",
+     "question": "Comment enregistrez-vous et suivez-vous les virements rejetés par la banque ou les paiements effectués par erreur ?",
+     "attendu": "Circuit de traitement et suivi des rejets",
+     "relance": "Qui traite les rejets bancaires et sous quel délai ?",
+     "motsCles": [
+      "rejet",
+      "virement",
+      "erreur",
+      "paiement",
+      "suivi"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "REG-06",
+     "question": "Vous arrive-t-il d'effectuer des paiements en espèces ou de verser des acomptes, et comment sont-ils tracés ?",
+     "attendu": "Cas de paiement en espèces, seuil et justificatifs",
+     "relance": "Comment justifiez-vous les acomptes versés ?",
+     "motsCles": [
+      "especes",
+      "acompte",
+      "paiement",
+      "justification",
+      "tracabilite"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Rattachement à l'exercice, FNP et clôture",
+   "questions": [
+    {
+     "id": "CLO-01",
+     "question": "Au moment de la clôture, comment identifiez-vous les factures non parvenues qui concernent l'exercice écoulé ?",
+     "attendu": "Source de l'information, responsable et critères retenus",
+     "relance": "Qui décide du montant à provisionner ?",
+     "motsCles": [
+      "facturenonparvenue",
+      "fnp",
+      "provision",
+      "cloture",
+      "cutoff"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "CLO-02",
+     "question": "Comment vous assurez-vous que chaque charge d'achat est bien rattachée à l'exercice auquel elle se rapporte ?",
+     "attendu": "Règle de rattachement et contrôle de séparation des exercices",
+     "relance": "Comment traitez-vous une facture qui concerne l'exercice suivant ?",
+     "motsCles": [
+      "rattachement",
+      "exercice",
+      "cutoff",
+      "separation",
+      "charge"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "CLO-03",
+     "question": "Avant la clôture, comment contrôlez-vous les soldes fournisseurs figurant dans votre comptabilité, et à quelle fréquence ?",
+     "attendu": "Lettrage, revue des balances et éventuelle circularisation",
+     "relance": "Rapprochez-vous vos soldes avec les relevés des fournisseurs ?",
+     "motsCles": [
+      "solde",
+      "fournisseur",
+      "lettrage",
+      "balance",
+      "cloture"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "CLO-04",
+     "question": "Comment sont comptabilisés et suivis les avoirs en attente ou les charges à recevoir ?",
+     "attendu": "Suivi des avoirs et des charges à recevoir, responsable",
+     "relance": "Quel est l'état des avoirs non reçus à ce jour ?",
+     "motsCles": [
+      "avoir",
+      "chargearecevoir",
+      "attente",
+      "suivi"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "CLO-05",
+     "question": "Qui réalise les écritures de clôture liées aux achats, et qui valide ces écritures avant la fin de l'exercice ?",
+     "attendu": "Nom du responsable et contrôle des écritures",
+     "relance": "Comment sont revues les écritures de fin d'exercice ?",
+     "motsCles": [
+      "ecriture",
+      "cloture",
+      "validation",
+      "findexercice",
+      "revision"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Litiges, avoirs et anomalies",
+   "questions": [
+    {
+     "id": "LIT-01",
+     "question": "Existe-t-il un suivi des litiges avec les fournisseurs, et qui est chargé de le tenir à jour ?",
+     "attendu": "Outil ou état, nom du responsable et périodicité",
+     "relance": "Comment sont priorisés les litiges ?",
+     "motsCles": [
+      "litige",
+      "contestation",
+      "suivi",
+      "responsable",
+      "fournisseur"
+     ],
+     "pieces": [
+      "état des litiges"
+     ]
+    },
+    {
+     "id": "LIT-02",
+     "question": "Comment demandez-vous les avoirs aux fournisseurs, et comment suivez-vous leur réception jusqu'à la comptabilisation ?",
+     "attendu": "Circuit de demande et suivi jusqu'à réception",
+     "relance": "Combien d'avoirs sont en attente aujourd'hui ?",
+     "motsCles": [
+      "avoir",
+      "demande",
+      "suivi",
+      "reception",
+      "remboursement"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "LIT-03",
+     "question": "Comment traitez-vous les anomalies comme un écart de prix, une erreur de facturation ou une fraude suspectée ?",
+     "attendu": "Circuit de remontée, traitement et traçabilité",
+     "relance": "Qui est alerté en cas de fraude suspectée ?",
+     "motsCles": [
+      "anomalie",
+      "erreur",
+      "fraude",
+      "remontee",
+      "alerte"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "LIT-04",
+     "question": "Comment gérez-vous les retours de marchandises et les avoirs liés à une non-conformité constatée ?",
+     "attendu": "Procédure de retour, enregistrement et lien avec l'avoir",
+     "relance": "Comment suivez-vous le lien entre retour et avoir ?",
+     "motsCles": [
+      "retour",
+      "marchandise",
+      "nonconformite",
+      "avoir",
+      "procedure"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "LIT-05",
+     "question": "Comment les litiges et les anomalies sont-ils remontés à la direction, et à quelle fréquence ?",
+     "attendu": "Fréquence, support et seuil de remontée",
+     "relance": "Donnez un exemple d'anomalie remontée récemment.",
+     "motsCles": [
+      "remontee",
+      "direction",
+      "reporting",
+      "anomalie",
+      "litige"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Système d'information et données fournisseurs",
+   "questions": [
+    {
+     "id": "SYS-01",
+     "question": "Quels outils logiciels couvrent votre cycle achats, et qui est chargé d'en administrer les accès ?",
+     "attendu": "Liste des outils, administrateur et gestion des droits",
+     "relance": "Comment les droits sont-ils attribués et révoqués ?",
+     "motsCles": [
+      "logiciel",
+      "outil",
+      "acces",
+      "administrateur",
+      "droit"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SYS-02",
+     "question": "Comment sont sauvegardées les données fournisseurs et les factures, et où sont stockées ces sauvegardes ?",
+     "attendu": "Fréquence de sauvegarde, test de restauration et localisation",
+     "relance": "Quand avez-vous testé la restauration pour la dernière fois ?",
+     "motsCles": [
+      "sauvegarde",
+      "restauration",
+      "donnees",
+      "facture",
+      "securite"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SYS-03",
+     "question": "Comment protégez-vous les coordonnées bancaires de vos fournisseurs pour éviter les fraudes au virement ?",
+     "attendu": "Contrôles d'accès, sensibilisation et vérification des changements",
+     "relance": "Comment validez-vous un changement de RIB ?",
+     "motsCles": [
+      "rib",
+      "fraude",
+      "securite",
+      "coordonneebancaire",
+      "changement"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SYS-04",
+     "question": "Le système trace-t-il qui a créé, modifié ou validé une facture ou une fiche fournisseur ?",
+     "attendu": "Piste d'audit et journal des modifications",
+     "relance": "Pouvez-vous me montrer l'historique d'une facture ?",
+     "motsCles": [
+      "pistedaudit",
+      "journal",
+      "tracabilite",
+      "historique",
+      "modification"
+     ],
+     "pieces": []
+    }
+   ]
+  }
+ ]
+}

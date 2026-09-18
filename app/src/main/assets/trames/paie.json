@@ -1,0 +1,811 @@
+{
+ "id": "paie",
+ "nom": "Contrôle interne — cycle paie et personnel",
+ "version": "2.0",
+ "source": "Trame type cabinet (à valider)",
+ "dureeCibleMin": 60,
+ "participantsAttendus": [
+  "Responsable paie",
+  "DRH ou gérant"
+ ],
+ "nbQuestions": 51,
+ "sections": [
+  {
+   "titre": "Entrées et sorties du personnel",
+   "questions": [
+    {
+     "id": "ENT-01",
+     "question": "Qui autorise une embauche, et existe-t-il une trace écrite de cette autorisation avant l'entrée en paie ?",
+     "attendu": "Nom de l'autorité et support de l'autorisation (contrat, mail, bon)",
+     "relance": "Comment le service paie sait-il qu'une embauche est autorisée ?",
+     "motsCles": [
+      "embauche",
+      "autorisation",
+      "contrat",
+      "validation"
+     ],
+     "pieces": [
+      "contrat de travail"
+     ]
+    },
+    {
+     "id": "ENT-02",
+     "question": "Comment est vérifiée la remise des documents d'entrée (pièce d'identité, coordonnées, situation familiale) avant le premier bulletin ?",
+     "attendu": "Liste de contrôle des documents exigés et personne responsable de leur collecte",
+     "relance": "Que faites-vous si un document manque avant l'échéance de paie ?",
+     "motsCles": [
+      "documentsdentree",
+      "piecedidentite",
+      "dossier",
+      "verification"
+     ],
+     "pieces": [
+      "DPAE",
+      "contrat de travail"
+     ]
+    },
+    {
+     "id": "ENT-03",
+     "question": "Comment le service paie est-il informé d'une mutation interne, d'un changement de poste ou de statut, et par qui ?",
+     "attendu": "Circuit d'information interne et support tracé de la décision",
+     "relance": "Le bulletin reflète-t-il systématiquement le changement dès le mois suivant ?",
+     "motsCles": [
+      "mutation",
+      "changementdeposte",
+      "statut",
+      "information",
+      "avenant"
+     ],
+     "pieces": [
+      "avenant"
+     ]
+    },
+    {
+     "id": "ENT-04",
+     "question": "Comment s'assure-t-on qu'un salarié sorti ne figure plus en paie et que son solde de tout compte est complet ?",
+     "attendu": "Procédure de sortie, contrôle du solde de tout compte et de la radiation",
+     "relance": "Qui contrôle le solde de tout compte avant sa remise ?",
+     "motsCles": [
+      "depart",
+      "sortie",
+      "soldedetoutcompte",
+      "radiation"
+     ],
+     "pieces": [
+      "solde de tout compte"
+     ]
+    },
+    {
+     "id": "ENT-05",
+     "question": "Tenez-vous un registre du personnel, et qui est responsable de sa mise à jour à chaque embauche et départ ?",
+     "attendu": "Existence du registre, responsable désigné et fréquence de mise à jour",
+     "relance": "À quand remonte la dernière mise à jour du registre ?",
+     "motsCles": [
+      "registredupersonnel",
+      "miseajour",
+      "embauche",
+      "depart"
+     ],
+     "pieces": [
+      "registre du personnel"
+     ]
+    }
+   ]
+  },
+  {
+   "titre": "Contrats, avenants et éléments variables",
+   "questions": [
+    {
+     "id": "VAR-01",
+     "question": "Comment sont transmises et contrôlées les modifications de contrat (salaire, temps de travail, classification) avant leur entrée en paie ?",
+     "attendu": "Circuit de transmission de l'avenant et double contrôle avant intégration",
+     "relance": "Qui vérifie que la paie a bien été mise à jour après l'avenant ?",
+     "motsCles": [
+      "avenant",
+      "modification",
+      "salaire",
+      "tempsdetravail",
+      "classification"
+     ],
+     "pieces": [
+      "avenant"
+     ]
+    },
+    {
+     "id": "VAR-02",
+     "question": "Comment sont saisies et validées les variables de paie (heures supplémentaires, primes, commissions) chaque mois ?",
+     "attendu": "Source de l'information, mode de saisie et validation par un responsable",
+     "relance": "Qui valide les variables avant l'intégration dans le bulletin ?",
+     "motsCles": [
+      "heuressupplementaires",
+      "prime",
+      "commission",
+      "saisie",
+      "validation"
+     ],
+     "pieces": [
+      "état des variables"
+     ]
+    },
+    {
+     "id": "VAR-03",
+     "question": "Existe-t-il un contrôle de cohérence entre les variables saisies et les éléments contractuels du salarié ?",
+     "attendu": "Nature du contrôle de cohérence et personne qui le réalise",
+     "relance": "Que faites-vous quand une variable ne correspond pas au contrat ?",
+     "motsCles": [
+      "coherence",
+      "variable",
+      "contrat",
+      "controle",
+      "incoherence"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "VAR-04",
+     "question": "Comment sont gérés les éléments non récurrents (primes exceptionnelles, rappels de salaire, indemnités) et qui les autorise ?",
+     "attendu": "Niveau d'autorisation requis et trace de l'autorisation",
+     "relance": "Existe-t-il un seuil au-delà duquel une autorisation écrite est exigée ?",
+     "motsCles": [
+      "primeexceptionnelle",
+      "rappeldesalaire",
+      "indemnite",
+      "autorisation"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "VAR-05",
+     "question": "Comment sont traités les avantages en nature et les frais professionnels, et comment sont-ils justifiés ?",
+     "attendu": "Mode de valorisation des avantages et justificatifs exigés pour les frais",
+     "relance": "Qui contrôle que les frais remboursés correspondent à des dépenses réelles ?",
+     "motsCles": [
+      "avantageennature",
+      "fraisprofessionnels",
+      "justificatif",
+      "remboursement"
+     ],
+     "pieces": [
+      "justificatifs de frais"
+     ]
+    }
+   ]
+  },
+  {
+   "titre": "Calcul et contrôle des bulletins",
+   "questions": [
+    {
+     "id": "BUL-01",
+     "question": "Existe-t-il un contrôle des bulletins avant leur paiement, et sur quels points porte-t-il concrètement chaque mois ?",
+     "attendu": "Description du contrôle réalisé et support de preuve conservé",
+     "relance": "Qui réalise ce contrôle et quand dans le processus de paie ?",
+     "motsCles": [
+      "controlebulletins",
+      "controledepaie",
+      "validation",
+      "verification"
+     ],
+     "pieces": [
+      "état de contrôle des bulletins"
+     ]
+    },
+    {
+     "id": "BUL-02",
+     "question": "Qui contrôle l'évolution du salaire brut entre deux mois, et que faites-vous en cas de variation inexpliquée ?",
+     "attendu": "Responsable du contrôle de variation et traitement des écarts constatés",
+     "relance": "Combien d'écarts non justifiés avez-vous relevés sur les derniers mois ?",
+     "motsCles": [
+      "variation",
+      "salairebrut",
+      "ecart",
+      "evolution",
+      "comparaison"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "BUL-03",
+     "question": "Comment est contrôlé le calcul des cotisations sociales sur les bulletins avant clôture de la paie ?",
+     "attendu": "Mode de vérification des cotisations et personne qui en répond",
+     "relance": "Comment détectez-vous une erreur de taux ou de plafond sur un bulletin ?",
+     "motsCles": [
+      "cotisations",
+      "taux",
+      "plafond",
+      "calcul",
+      "controle"
+     ],
+     "pieces": [
+      "bulletin de paie"
+     ]
+    },
+    {
+     "id": "BUL-04",
+     "question": "Comment est vérifiée la cohérence entre les bulletins et les éléments collectifs (effectif, masse salariale) ?",
+     "attendu": "Rapprochement effectué entre les bulletins individuels et les totaux globaux",
+     "relance": "À quelle fréquence ce rapprochement est-il réalisé ?",
+     "motsCles": [
+      "effectif",
+      "massesalariale",
+      "coherence",
+      "rapprochement",
+      "total"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "BUL-05",
+     "question": "Existe-t-il un contrôle de vraisemblance des bulletins (salaire net, cumuls annuels, plafonds) et qui le réalise ?",
+     "attendu": "Description des points de vraisemblance vérifiés et responsable désigné",
+     "relance": "Sur quoi vous alerte ce contrôle de vraisemblance en pratique ?",
+     "motsCles": [
+      "vraisemblance",
+      "salairenet",
+      "cumul",
+      "plafond",
+      "alerte"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "BUL-06",
+     "question": "Comment sont édités, conservés et diffusés les bulletins, et qui valide leur conformité avant diffusion ?",
+     "attendu": "Circuit d'édition, de validation et de diffusion des bulletins",
+     "relance": "Les bulletins sont-ils archivés de façon à rester consultables plusieurs années ?",
+     "motsCles": [
+      "edition",
+      "bulletin",
+      "diffusion",
+      "archivage",
+      "validation"
+     ],
+     "pieces": [
+      "bulletin de paie"
+     ]
+    }
+   ]
+  },
+  {
+   "titre": "Absences, arrêts de travail et prévoyance",
+   "questions": [
+    {
+     "id": "ABS-01",
+     "question": "Comment sont collectés et contrôlés les justificatifs d'arrêt de travail avant leur saisie en paie ?",
+     "attendu": "Circuit de collecte des arrêts et contrôle de leur validité avant saisie",
+     "relance": "Que faites-vous si l'arrêt n'est pas transmis dans les délais ?",
+     "motsCles": [
+      "arretdetravail",
+      "justificatif",
+      "maladie",
+      "collecte",
+      "delai"
+     ],
+     "pieces": [
+      "arrêt de travail"
+     ]
+    },
+    {
+     "id": "ABS-02",
+     "question": "Comment sont calculées et suivies les indemnités journalières et la subrogation sur les arrêts maladie ?",
+     "attendu": "Mode de calcul des IJSS, gestion de la subrogation et suivi des remboursements",
+     "relance": "Comment vérifiez-vous que les IJSS versées correspondent aux attentes ?",
+     "motsCles": [
+      "indemnitesjournalieres",
+      "ijss",
+      "subrogation",
+      "remboursement"
+     ],
+     "pieces": [
+      "décompte IJSS"
+     ]
+    },
+    {
+     "id": "ABS-03",
+     "question": "Comment sont gérées les absences non rémunérées (congés sans solde, absences injustifiées) et leur impact en paie ?",
+     "attendu": "Règles de gestion des absences et mode de calcul de leur impact sur le bulletin",
+     "relance": "Qui autorise un congé sans solde et sous quelle forme ?",
+     "motsCles": [
+      "absence",
+      "congesanssolde",
+      "absenceinjustifiee",
+      "retenue"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ABS-04",
+     "question": "Comment sont suivis les congés payés, les soldes et les compteurs, et qui les valide ?",
+     "attendu": "Outil de suivi des congés et responsable de validation des compteurs",
+     "relance": "Les soldes de congés sont-ils régulièrement rapprochés avec la paie ?",
+     "motsCles": [
+      "congespayes",
+      "solde",
+      "compteur",
+      "suivi",
+      "validation"
+     ],
+     "pieces": [
+      "état des congés payés"
+     ]
+    },
+    {
+     "id": "ABS-05",
+     "question": "Comment sont traitées les situations de prévoyance (maternité, invalidité, décès) et leurs incidences financières sur la paie ?",
+     "attendu": "Circuit de prise en charge des situations de prévoyance et suivi des indemnités",
+     "relance": "Qui s'assure de la continuité de la paie dans ces situations ?",
+     "motsCles": [
+      "maternite",
+      "invalidite",
+      "deces",
+      "prevoyance",
+      "indemnite"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Déclarations sociales et impôt",
+   "questions": [
+    {
+     "id": "DSN-01",
+     "question": "Qui prépare la DSN chaque mois, qui la contrôle avant envoi, et qui la transmet aux organismes ?",
+     "attendu": "Séparation des rôles entre préparation, contrôle et transmission de la DSN",
+     "relance": "La même personne peut-elle préparer et transmettre la DSN ?",
+     "motsCles": [
+      "dsn",
+      "declaration",
+      "transmission",
+      "controle",
+      "validation"
+     ],
+     "pieces": [
+      "accusé de réception DSN"
+     ]
+    },
+    {
+     "id": "DSN-02",
+     "question": "Comment est contrôlée la cohérence entre la DSN et le journal de paie avant transmission ?",
+     "attendu": "Rapprochement réalisé entre les données déclarées et le journal de paie",
+     "relance": "Que faites-vous en cas d'écart entre la DSN et le journal de paie ?",
+     "motsCles": [
+      "coherence",
+      "journaldepaie",
+      "ecart",
+      "rapprochement",
+      "controle"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "DSN-03",
+     "question": "Comment sont suivies et soldées les anomalies ou retours de la DSN, comme les rejets ou les signalements ?",
+     "attendu": "Outil de suivi des retours DSN et délai de traitement des anomalies",
+     "relance": "Combien de rejets restent-ils en attente de traitement à ce jour ?",
+     "motsCles": [
+      "rejet",
+      "anomalie",
+      "retour",
+      "signalement",
+      "correction"
+     ],
+     "pieces": [
+      "journal des événements DSN"
+     ]
+    },
+    {
+     "id": "DSN-04",
+     "question": "Comment sont gérées les autres déclarations (prélèvement à la source, taxes, mutuelle) et leurs échéances ?",
+     "attendu": "Inventaire des déclarations gérées et suivi de leurs échéances",
+     "relance": "Qui vérifie que toutes les déclarations ont bien été transmises chaque période ?",
+     "motsCles": [
+      "prelevementalasource",
+      "taxe",
+      "mutuelle",
+      "declaration",
+      "echeance"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "DSN-05",
+     "question": "Existe-t-il un calendrier des échéances déclaratives et sociales de la paie, et qui en garantit le respect ?",
+     "attendu": "Existence d'un calendrier et responsable du respect des échéances",
+     "relance": "Que se passe-t-il si une échéance déclarative est manquée ?",
+     "motsCles": [
+      "calendrier",
+      "echeance",
+      "declaration",
+      "delai",
+      "responsable"
+     ],
+     "pieces": [
+      "calendrier déclaratif"
+     ]
+    }
+   ]
+  },
+  {
+   "titre": "Paie et banque : virements et rapprochements",
+   "questions": [
+    {
+     "id": "BQ-01",
+     "question": "Qui prépare le fichier de virements de salaires et qui le valide avant envoi à la banque ?",
+     "attendu": "Séparation entre préparation et validation du fichier de virements",
+     "relance": "Une seule personne peut-elle préparer et valider un virement de salaires ?",
+     "motsCles": [
+      "fichierdevirement",
+      "salaire",
+      "validation",
+      "banque",
+      "preparation"
+     ],
+     "pieces": [
+      "fichier de virement"
+     ]
+    },
+    {
+     "id": "BQ-02",
+     "question": "Comment est contrôlé le rapprochement entre le total des virements, le journal de paie et le fichier bancaire ?",
+     "attendu": "Description du rapprochement réalisé et périodicité du contrôle",
+     "relance": "Que faites-vous si le total du virement diffère du journal de paie ?",
+     "motsCles": [
+      "rapprochement",
+      "virement",
+      "journaldepaie",
+      "total",
+      "ecart"
+     ],
+     "pieces": [
+      "journal de paie",
+      "relevé bancaire"
+     ]
+    },
+    {
+     "id": "BQ-03",
+     "question": "Comment sont gérés les virements de charges sociales et les règlements aux organismes, et par qui ?",
+     "attendu": "Circuit de paiement des charges sociales et responsable de leur exécution",
+     "relance": "Qui contrôle que les prélèvements des organismes correspondent aux déclarations ?",
+     "motsCles": [
+      "chargessociales",
+      "organisme",
+      "prelevement",
+      "reglement",
+      "paiement"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "BQ-04",
+     "question": "Comment sont traitées les différences entre virements et bulletins, comme les rejets, les salariés non payés ou les trop-versés ?",
+     "attendu": "Procédure de traitement des écarts de paiement et de récupération des trop-versés",
+     "relance": "Comment récupérez-vous un trop-versé sur le salaire d'un salarié ?",
+     "motsCles": [
+      "rejet",
+      "tropverse",
+      "nonpaye",
+      "ecart",
+      "recuperation"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "BQ-05",
+     "question": "Les comptes bancaires utilisés pour la paie sont-ils distincts des comptes courants, et comment sont-ils réconciliés ?",
+     "attendu": "Existence de comptes dédiés à la paie et rapprochement bancaire réalisé",
+     "relance": "Qui réalise le rapprochement bancaire des comptes de paie ?",
+     "motsCles": [
+      "comptebancaire",
+      "comptededie",
+      "rapprochementbancaire",
+      "reconciliation"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Provisions, charges à payer et clôture",
+   "questions": [
+    {
+     "id": "CLO-01",
+     "question": "Comment sont calculées et revues les provisions pour congés payés à chaque clôture comptable, et par qui ?",
+     "attendu": "Méthode de calcul des provisions et personne qui les revoit",
+     "relance": "Les provisions sont-elles rapprochées des soldes de congés réels ?",
+     "motsCles": [
+      "provision",
+      "congespayes",
+      "cloture",
+      "calcul",
+      "revue"
+     ],
+     "pieces": [
+      "état des provisions"
+     ]
+    },
+    {
+     "id": "CLO-02",
+     "question": "Comment sont estimées les charges sociales à payer sur les salaires de la période de clôture ?",
+     "attendu": "Mode d'estimation des charges à payer et justification du montant retenu",
+     "relance": "Comment assurez-vous la cohérence avec les charges réglées après clôture ?",
+     "motsCles": [
+      "chargesapayer",
+      "estimation",
+      "cloture",
+      "chargessociales"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "CLO-03",
+     "question": "Existe-t-il une procédure de clôture de paie formalisée, et qui la pilote à chaque période ?",
+     "attendu": "Existence d'une procédure écrite et responsable de la clôture",
+     "relance": "La procédure est-elle mise à jour à chaque changement d'organisation ?",
+     "motsCles": [
+      "cloture",
+      "procedure",
+      "paie",
+      "responsable",
+      "periode"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "CLO-04",
+     "question": "Comment sont contrôlés les comptes de charges de personnel et leur rapprochement avec la paie en clôture ?",
+     "attendu": "Rapprochement entre les comptes comptables et les totaux de paie",
+     "relance": "Qui justifie les écarts entre comptabilité et paie en clôture ?",
+     "motsCles": [
+      "chargesdepersonnel",
+      "rapprochement",
+      "comptabilite",
+      "ecart"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "CLO-05",
+     "question": "Comment sont traitées les régularisations de fin d'exercice, comme les primes de fin d'année, la participation ou l'intéressement ?",
+     "attendu": "Modalités de comptabilisation et de paiement des éléments de fin d'exercice",
+     "relance": "Qui valide les montants de participation et d'intéressement avant paiement ?",
+     "motsCles": [
+      "primedefindannee",
+      "participation",
+      "interessement",
+      "regularisation"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Accès, confidentialité et données personnelles",
+   "questions": [
+    {
+     "id": "ACC-01",
+     "question": "Qui a accès au logiciel de paie et aux données de salaires, et comment les droits sont-ils revus ?",
+     "attendu": "Liste des accès autorisés et périodicité de leur revue",
+     "relance": "Comment retirez-vous l'accès quand un collaborateur quitte le service ?",
+     "motsCles": [
+      "acces",
+      "droit",
+      "habilitation",
+      "profil",
+      "revue"
+     ],
+     "pieces": [
+      "matrice des habilitations"
+     ]
+    },
+    {
+     "id": "ACC-02",
+     "question": "Comment sont protégés les fichiers de virements et les coordonnées bancaires de vos salariés au quotidien ?",
+     "attendu": "Mesures de protection des fichiers bancaires et des données sensibles",
+     "relance": "Les fichiers de virements sont-ils chiffrés ou stockés en accès restreint ?",
+     "motsCles": [
+      "fichierdevirement",
+      "coordonneesbancaires",
+      "protection",
+      "chiffrement"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ACC-03",
+     "question": "Comment sont diffusés les bulletins de paie aux salariés, et de quelle façon garantissez-vous leur confidentialité ?",
+     "attendu": "Mode de diffusion des bulletins et restrictions d'accès appliquées",
+     "relance": "Les bulletins sont-ils remis uniquement au salarié concerné ?",
+     "motsCles": [
+      "bulletin",
+      "diffusion",
+      "confidentialite",
+      "remise",
+      "acces"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ACC-04",
+     "question": "Comment sont gérés les accès en cas de départ ou de changement de poste d'un collaborateur ?",
+     "attendu": "Procédure de retrait ou de modification des accès à chaque mobilité",
+     "relance": "Existe-t-il une liste de contrôle des accès à supprimer lors d'un départ ?",
+     "motsCles": [
+      "depart",
+      "changementdeposte",
+      "retraitdacces",
+      "mobilite"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ACC-05",
+     "question": "Existe-t-il une traçabilité des accès et des modifications réalisées dans le logiciel de paie de l'entreprise ?",
+     "attendu": "Journalisation des accès et des modifications, et modalités de consultation",
+     "relance": "Qui peut consulter l'historique des modifications d'un bulletin ?",
+     "motsCles": [
+      "tracabilite",
+      "journal",
+      "modification",
+      "historique",
+      "log"
+     ],
+     "pieces": [
+      "journal des traces"
+     ]
+    }
+   ]
+  },
+  {
+   "titre": "Litiges, contrôles externes et anomalies",
+   "questions": [
+    {
+     "id": "LIT-01",
+     "question": "Existe-t-il un suivi des réclamations et litiges de salariés, et qui le tient à jour ?",
+     "attendu": "Support de suivi des litiges et responsable de sa tenue",
+     "relance": "Comment classez-vous et priorisez-vous les réclamations reçues ?",
+     "motsCles": [
+      "litige",
+      "reclamation",
+      "contestation",
+      "suivi",
+      "salarie"
+     ],
+     "pieces": [
+      "registre des réclamations"
+     ]
+    },
+    {
+     "id": "LIT-02",
+     "question": "Comment sont gérés les contrôles externes (organismes sociaux, inspection du travail) et qui les prend en charge ?",
+     "attendu": "Responsable désigné et organisation face aux demandes des organismes",
+     "relance": "Comment sont conservées les pièces demandées lors d'un contrôle ?",
+     "motsCles": [
+      "controleurssaf",
+      "inspectiondutravail",
+      "organisme",
+      "demande"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "LIT-03",
+     "question": "Comment sont traitées les demandes de régularisation (rappels de salaire, trop-perçus) et qui les autorise ?",
+     "attendu": "Circuit d'analyse et d'autorisation des régularisations de paie",
+     "relance": "Existe-t-il une validation hiérarchique avant toute régularisation ?",
+     "motsCles": [
+      "regularisation",
+      "rappeldesalaire",
+      "troppercu",
+      "autorisation"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "LIT-04",
+     "question": "Existe-t-il un registre des anomalies de paie détectées et des actions correctives que vous avez menées ?",
+     "attendu": "Existence d'un suivi des anomalies et des corrections apportées",
+     "relance": "À quand remonte la dernière anomalie enregistrée et corrigée ?",
+     "motsCles": [
+      "anomalie",
+      "correction",
+      "registre",
+      "actioncorrective"
+     ],
+     "pieces": [
+      "registre des anomalies"
+     ]
+    },
+    {
+     "id": "LIT-05",
+     "question": "Comment sont gérés les courriers et les mises en demeure reçus des organismes sociaux, et par qui ?",
+     "attendu": "Circuit de traitement des courriers et délais de réponse respectés",
+     "relance": "Qui assure le suivi des réponses aux organismes ?",
+     "motsCles": [
+      "miseendemeure",
+      "courrier",
+      "organisme",
+      "relance",
+      "reponse"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Système d'information de paie",
+   "questions": [
+    {
+     "id": "SYS-01",
+     "question": "Quel logiciel de paie utilisez-vous, et qui en assure la maintenance et les mises à jour ?",
+     "attendu": "Nom du logiciel et responsable de sa maintenance",
+     "relance": "Comment les mises à jour du logiciel sont-elles planifiées et testées ?",
+     "motsCles": [
+      "logicieldepaie",
+      "maintenance",
+      "miseajour",
+      "version"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SYS-02",
+     "question": "Existe-t-il des sauvegardes régulières des données de paie, et à quelle fréquence sont-elles réellement testées ?",
+     "attendu": "Fréquence des sauvegardes et test de restauration réalisé",
+     "relance": "Quand avez-vous restauré une sauvegarde pour la dernière fois ?",
+     "motsCles": [
+      "sauvegarde",
+      "restauration",
+      "test",
+      "donneesdepaie"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SYS-03",
+     "question": "Comment sont gérés les paramétrages du logiciel (taux, plafonds, rubriques) et qui peut les modifier ?",
+     "attendu": "Règles de gestion des paramètres et personnes autorisées à les modifier",
+     "relance": "Une modification de paramètre est-elle tracée et validée par un second ?",
+     "motsCles": [
+      "parametrage",
+      "taux",
+      "plafond",
+      "rubrique",
+      "modification"
+     ],
+     "pieces": [
+      "documentation du paramétrage"
+     ]
+    },
+    {
+     "id": "SYS-04",
+     "question": "Comment est vérifiée la bonne application des mises à jour réglementaires dans votre logiciel de paie ?",
+     "attendu": "Modalités de contrôle de la conformité réglementaire des paramètres",
+     "relance": "Qui valide les nouveaux paramètres après une évolution réglementaire ?",
+     "motsCles": [
+      "miseajourreglementaire",
+      "conformite",
+      "parametre",
+      "evolution"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SYS-05",
+     "question": "Existe-t-il une documentation des procédures de paie et des contrôles, et où est-elle accessible pour l'équipe ?",
+     "attendu": "Existence d'une documentation formalisée et lieu de son accessibilité",
+     "relance": "La documentation est-elle mise à jour à chaque changement de procédure ?",
+     "motsCles": [
+      "documentation",
+      "procedure",
+      "manuel",
+      "controle",
+      "miseajour"
+     ],
+     "pieces": [
+      "manuel de procédures"
+     ]
+    }
+   ]
+  }
+ ]
+}

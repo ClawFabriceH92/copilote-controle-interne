@@ -1,0 +1,45 @@
+name: Compilation et publication
+
+on:
+  push:
+    branches: [master, main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Vérification des trames
+        run: |
+          pip install pyyaml --quiet
+          python3 docs/verifier_trames.py
+          python3 tools/export_trames.py
+
+      - name: Compilation (debug)
+        run: ./gradlew assembleDebug --no-daemon --console=plain
+
+      - name: Compilation (release signée)
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          COPILOTECI_KEYSTORE_B64: ${{ secrets.COPILOTECI_KEYSTORE_B64 }}
+          COPILOTECI_KEYSTORE_PASSWORD: ${{ secrets.COPILOTECI_KEYSTORE_PASSWORD }}
+          COPILOTECI_KEY_ALIAS: ${{ secrets.COPILOTECI_KEY_ALIAS }}
+          COPILOTECI_KEY_PASSWORD: ${{ secrets.COPILOTECI_KEY_PASSWORD }}
+        run: ./gradlew assembleRelease --no-daemon --console=plain
+
+      - name: Publication de la release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: app/build/outputs/apk/release/app-release.apk
+          generate_release_notes: true

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bleu de la charte CNCC -->
+    <color name="ic_launcher_background">#004787</color>
+    <color name="cncc_bleu">#004787</color>
+    <color name="cncc_terracotta">#D66C54</color>
+</resources>

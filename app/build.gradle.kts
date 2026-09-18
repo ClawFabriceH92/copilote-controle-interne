@@ -1,0 +1,90 @@
+import java.io.File
+import java.util.Base64
+
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
+}
+
+fun releaseKeystore(): File? {
+    System.getenv("COPILOTECI_KEYSTORE_B64")?.let { b64 ->
+        val tmp = File(System.getenv("RUNNER_TEMP") ?: "/tmp", "copiloteci-release.keystore")
+        tmp.writeBytes(Base64.getDecoder().decode(b64))
+        return tmp
+    }
+    val candidats = listOf(
+        File(System.getProperty("user.home"), ".secrets/keystores-android/copiloteci-release.keystore"),
+        File("/root/.secrets/keystores-android/copiloteci-release.keystore"),
+    )
+    return candidats.firstOrNull { it.exists() }
+}
+
+android {
+    namespace = "fr.fh.copiloteci"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "fr.fh.copiloteci"
+        minSdk = 26
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0.0"
+        resourceConfigurations += listOf("fr")
+    }
+
+    val ks = releaseKeystore()
+    if (ks != null) {
+        signingConfigs {
+            create("release") {
+                storeFile = ks
+                storePassword = System.getenv("COPILOTECI_KEYSTORE_PASSWORD") ?: "copiloteci2026"
+                keyAlias = System.getenv("COPILOTECI_KEY_ALIAS") ?: "copiloteci"
+                keyPassword = System.getenv("COPILOTECI_KEY_PASSWORD") ?: "copiloteci2026"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            isShrinkResources = false
+            ks?.let { signingConfig = signingConfigs.getByName("release") }
+        }
+        debug {
+            isMinifyEnabled = false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    packaging {
+        resources.excludes += setOf("/META-INF/{AL2.0,LGPL2.1}")
+    }
+}
+
+dependencies {
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.activity:activity-compose:1.9.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.5")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.5")
+
+    implementation(platform("androidx.compose:compose-bom:2024.06.00"))
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-graphics")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-extended")
+
+    testImplementation("junit:junit:4.13.2")
+}

@@ -1,0 +1,313 @@
+{
+ "id": "prise-de-connaissance",
+ "nom": "Prise de connaissance — entité et contrôle interne",
+ "version": "1.0",
+ "source": "Trame type cabinet (démarche NEP-315, à valider)",
+ "dureeCibleMin": 50,
+ "participantsAttendus": [
+  "Gérant",
+  "Responsable administratif et financier",
+  "Responsable informatique"
+ ],
+ "nbQuestions": 20,
+ "sections": [
+  {
+   "titre": "Entité, activité et environnement",
+   "questions": [
+    {
+     "id": "ENT-01",
+     "question": "Comment décririez-vous votre activité en quelques phrases, et quels sont vos principaux produits ou services ?",
+     "attendu": "Description de l'activité, produits phares, part de chacun",
+     "relance": "Quelle part du chiffre d'affaires vient du premier client ?",
+     "motsCles": [
+      "activite",
+      "produits",
+      "services",
+      "chiffredaffaires",
+      "client"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ENT-02",
+     "question": "Sur quels marchés intervenez-vous, et comment évoluent-ils actuellement ?",
+     "attendu": "Marchés, zones géographiques, tendance",
+     "relance": "Vos concurrents directs, qui sont-ils ?",
+     "motsCles": [
+      "marche",
+      "zone",
+      "geographique",
+      "concurrence",
+      "evolution"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ENT-03",
+     "question": "Combien de personnes travaillent dans l'entreprise, et comment sont organisés les services ?",
+     "attendu": "Effectif et organigramme",
+     "relance": "Qui remplace qui en cas d'absence ?",
+     "motsCles": [
+      "effectif",
+      "salaries",
+      "organigramme",
+      "service",
+      "organisation"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ENT-04",
+     "question": "Qui détient le capital, et y a-t-il un groupe ou des sociétés liées ?",
+     "attendu": "Actionnariat, liens de groupe, sociétés sœurs",
+     "relance": "Y a-t-il des comptes courants ou des prêts entre ces sociétés ?",
+     "motsCles": [
+      "capital",
+      "associe",
+      "groupe",
+      "societeliee",
+      "holding"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "ENT-05",
+     "question": "Quels événements importants ont marqué l'exercice écoulé (croissance, perte de client, litige, changement d'outil) ?",
+     "attendu": "Événements significatifs et leurs conséquences",
+     "relance": "Ces événements ont-ils changé quelque chose dans l'organisation ?",
+     "motsCles": [
+      "evenement",
+      "changement",
+      "perte",
+      "croissance",
+      "litige"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Direction, gouvernance et climat de contrôle",
+   "questions": [
+    {
+     "id": "DIR-01",
+     "question": "Qui décide au quotidien, et qui décide des engagements importants ?",
+     "attendu": "Répartition des décisions et seuils",
+     "relance": "Est-ce formalisé quelque part ?",
+     "motsCles": [
+      "decision",
+      "engagement",
+      "seuil",
+      "gerant",
+      "direction"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "DIR-02",
+     "question": "Comment l'information remonte-t-elle à la direction quand quelque chose ne va pas ?",
+     "attendu": "Circuit de remontée et exemples",
+     "relance": "Donnez-moi un exemple récent où cela s'est produit.",
+     "motsCles": [
+      "remontee",
+      "alerte",
+      "information",
+      "direction",
+      "reporting"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "DIR-03",
+     "question": "Disposez-vous d'un tableau de bord de suivi, et à quelle fréquence le regardez-vous ?",
+     "attendu": "Indicateurs suivis, fréquence, responsable",
+     "relance": "Quels sont les trois indicateurs que vous regardez en premier ?",
+     "motsCles": [
+      "tableaudebord",
+      "indicateur",
+      "suivi",
+      "frequence",
+      "mensuel"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "DIR-04",
+     "question": "Comment les salariés connaissent-ils les règles à respecter (procédures, notes, consignes) ?",
+     "attendu": "Support des règles internes et mode de diffusion",
+     "relance": "Un nouvel embauché, il est formé par qui et sur quoi ?",
+     "motsCles": [
+      "procedure",
+      "consigne",
+      "note",
+      "diffusion",
+      "regles"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "DIR-05",
+     "question": "Existe-t-il un document écrit qui décrit les contrôles réalisés dans l'entreprise ?",
+     "attendu": "Existence d'un référentiel de contrôles, date de mise à jour",
+     "relance": "Sinon, comment savez-vous que les choses sont faites correctement ?",
+     "motsCles": [
+      "controleinterne",
+      "document",
+      "procedureecrite",
+      "referentiel"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Système d'information et flux comptables",
+   "questions": [
+    {
+     "id": "SIS-01",
+     "question": "Quels logiciels utilisez-vous pour la gestion, la facturation et la comptabilité ?",
+     "attendu": "Liste des outils et de leur rôle",
+     "relance": "Les outils se parlent-ils entre eux ou ressaisissez-vous les données ?",
+     "motsCles": [
+      "logiciel",
+      "outil",
+      "facturation",
+      "comptabilite",
+      "gestion"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SIS-02",
+     "question": "Comment une facture client ou fournisseur passe-t-elle de sa réception au paiement ou à l'encaissement ?",
+     "attendu": "Circuit complet, points de contrôle et personnes",
+     "relance": "Combien de personnes interviennent sur ce circuit ?",
+     "motsCles": [
+      "circuit",
+      "facture",
+      "reception",
+      "paiement",
+      "encaissement",
+      "saisie"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SIS-03",
+     "question": "Qui a accès aux logiciels, et comment les droits sont-ils accordés puis retirés ?",
+     "attendu": "Profils, demandeur, procédure de retrait",
+     "relance": "Comment retirez-vous les accès quand quelqu'un part ?",
+     "motsCles": [
+      "acces",
+      "droit",
+      "profil",
+      "motdepasse",
+      "habilitation"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SIS-04",
+     "question": "Comment les données sont-elles sauvegardées, et avez-vous déjà testé une restauration ?",
+     "attendu": "Fréquence des sauvegardes, support, test de restauration",
+     "relance": "Quand avez-vous restauré une sauvegarde pour la dernière fois ?",
+     "motsCles": [
+      "sauvegarde",
+      "restauration",
+      "sauvegardequotidienne",
+      "copie"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "SIS-05",
+     "question": "Qui tient la comptabilité au quotidien, et qui la relit avant la clôture ?",
+     "attendu": "Répartition saisie et contrôle, périodicité",
+     "relance": "À quelle date la comptabilité est-elle arrêtée chaque mois ?",
+     "motsCles": [
+      "comptabilite",
+      "saisie",
+      "controle",
+      "revision",
+      "cloture"
+     ],
+     "pieces": []
+    }
+   ]
+  },
+  {
+   "titre": "Risques identifiés et continuité",
+   "questions": [
+    {
+     "id": "RIS-01",
+     "question": "Quels sont les deux ou trois risques qui pourraient le plus vous coûter cher cette année ?",
+     "attendu": "Liste de risques exprimés par le client, avec ordre de grandeur",
+     "relance": "Qu'avez-vous mis en place pour vous en protéger ?",
+     "motsCles": [
+      "risque",
+      "danger",
+      "cout",
+      "consequence",
+      "protection"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "RIS-02",
+     "question": "Comment une erreur importante serait-elle détectée, et par qui ?",
+     "attendu": "Moyen de détection et responsable",
+     "relance": "Qu'a révélé le dernier contrôle de ce type ?",
+     "motsCles": [
+      "erreur",
+      "detection",
+      "controle",
+      "signalement",
+      "correction"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "RIS-03",
+     "question": "Etes-vous dépendant d'une personne clé, d'un client ou d'un fournisseur unique ?",
+     "attendu": "Dépendances identifiées et mesures de repli",
+     "relance": "Avez-vous prévu une solution si cette personne partait demain ?",
+     "motsCles": [
+      "dependance",
+      "personnecle",
+      "fournisseurunique",
+      "clientunique"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "RIS-04",
+     "question": "Que se passerait-il si l'entreprise était privée de son outil informatique pendant une semaine ?",
+     "attendu": "Scénario de continuité, plan de secours",
+     "relance": "Avez-vous un plan écrit, et qui le déclencherait ?",
+     "motsCles": [
+      "panne",
+      "informatique",
+      "continuite",
+      "plan",
+      "secours"
+     ],
+     "pieces": []
+    },
+    {
+     "id": "RIS-05",
+     "question": "Avons-nous déjà discuté d'anomalies ou de soupçons de fraude, et comment cela a-t-il été traité ?",
+     "attendu": "Faits rapportés, traitement et mesures prises",
+     "relance": "Y a-t-il eu un signalement de salarié, ou un doute non confirmé ?",
+     "motsCles": [
+      "fraude",
+      "anomalie",
+      "soupcon",
+      "detournement",
+      "signalement"
+     ],
+     "pieces": []
+    }
+   ]
+  }
+ ]
+}

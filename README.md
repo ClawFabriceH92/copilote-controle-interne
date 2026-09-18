@@ -1,55 +1,77 @@
 # Copilote Contrôle Interne
 
-Application d'assistance **en direct** pour un collaborateur débutant qui conduit une procédure de contrôle interne (entretien, revue de procédure, tests).
+Application Android d'assistance **en direct** pour un collaborateur qui conduit une procédure de contrôle interne (entretien, revue de procédure, prise de connaissance).
 
-Pendant la séance, l'application :
+Elle transforme un questionnaire en copilote de séance :
 
-1. **transcrit la conversation au fil de l'eau** (STT local, aucune donnée qui sort du poste) ;
-2. **coche automatiquement** les questions du questionnaire dès qu'elles sont traitées, en conservant la **citation horodatée** qui l'a justifié ;
-3. **montre ce qui reste à poser**, section par section, avec une **relance suggérée** quand une question est restée sans réponse ;
-4. **produit le compte rendu** de séance (réponses extraites, points non traités, actions à suivre, audio joint).
+1. **transcrit la conversation au fil de l'eau** (reconnaissance vocale du système, français) ;
+2. **repère les questions abordées** et les passe en « évoquée », avec la **citation horodatée** qui l'a déclenchée ;
+3. **garde sous les yeux ce qui reste à poser**, section par section, avec la **relance à utiliser** quand un sujet n'a été qu'effleuré ;
+4. **produit le compte rendu** de séance : questions traitées avec leurs citations, questions non traitées, sujets à creuser, actions à suivre, transcription complète — partageable en PDF et en markdown.
 
-Public visé : collaborateurs juniors du cabinet, pour qui le questionnaire est autant une **checklist de non-oubli** qu'un **coach de formulation**.
+Public visé : collaborateurs juniors, pour qui le questionnaire est autant une **checklist de non-oubli** qu'un **guide de relance**.
 
-## Principe de conception
+## Aperçu de l'interface
 
-- **L'humain garde la main.** L'IA propose (question évoquée, réponse entendue), le collaborateur valide d'un tap. Toute coche automatique est réversible et tracée.
-- **Local d'abord.** Audio, transcription et analyse restent sur l'appareil (whisper.cpp + LLM local). Secret professionnel : rien ne part dans le cloud par défaut.
-- **Traçabilité probante.** Chaque question cochée stocke l'horodatage, la citation exacte et le numéro de segment, plus l'empreinte SHA-256 de l'enregistrement.
+![Écran de séance](docs/maquette-apercu.png)
 
-## Périmètre v1 (à valider)
+Maquette de l'écran de séance (couleurs de la charte CNCC, bleu #004787 et terracotta #D66C54) :
+à gauche le questionnaire avec l'état de chaque question et la citation entendue, à droite la
+transcription en direct, en bas la question suggérée avec sa relance. Le fichier `docs/maquette.html`
+est cliquable et rejoue une séance simulée.
 
-| Bloc | Contenu v1 |
-|---|---|
-| Questionnaires | format YAML versionné, sections, questions, relances types, mots-clés ; import depuis un fichier ou depuis le repo |
-| Séance | enregistrement + transcription live, chrono, pause, marqueurs ⚑, reprise après interruption |
-| Appariement | détection « question traitée » par mots-clés + embeddings + validation LLM local, seuil de confiance |
-| Suivi | 4 états par question (à poser, évoquée, répondue, sans objet), progression, reste à poser, question suggérée |
-| Rapport | Word/PDF : questionnaire commenté, réponses extraites avec citations, questions non traitées, actions, durée, empreinte audio |
-| Sécurité | chiffrement au repos, PIN/biométrie, purge selon la politique de rétention du cabinet |
+## Principes
 
-Hors périmètre v1 : multi-utilisateurs, synchronisation serveur, signature électronique, analyse statistique des campagnes.
+- **L'humain garde la main.** L'application propose (question évoquée), le collaborateur valide (« répondue », « sans objet »). Toute détection est réversible et tracée.
+- **Tout reste sur l'appareil.** Audio, transcription et compte rendu sont écrits dans le stockage privé de l'application. Aucun serveur, aucun compte, aucune télémétrie.
+- **Traçabilité.** Chaque question porte l'heure, la citation exacte, le niveau de confiance et l'origine (auto ou manuel).
 
-## Architecture envisagée
+## Écrans
 
-- **Socle repris de [`transcripto-stream`](https://github.com/ClawFabriceH92/transcripto-stream)** : whisper.cpp en temps réel (Silero VAD), segments horodatés, dossiers clients, chiffrement AES-256-GCM, exports Word/PDF sans bibliothèque tierce. C'est du code déjà éprouvé, on ne réécrit pas le moteur audio.
-- **Nouveau moteur (ce dépôt)** : `QuestionnaireEngine` (chargement YAML, état des questions), `Apparieur` (3 niveaux : mots-clés → embeddings → LLM), `RapportSeance`, `EcranSeance`.
+- **Préparation** : dossier client, participants, choix du questionnaire.
+- **Séance** : progression, question suggérée avec relance, deux onglets (questions / transcription), marquage en un tap, notes, actions, marqueur de fin de séance.
+- **Revue** : questions non traitées, sujets à creuser, actions, génération du compte rendu (PDF + markdown) et partage.
+- **Fin de séance** : l'application demande quoi faire de l'enregistrement audio — conserver ou effacer immédiatement.
 
+## Questionnaires embarqués
+
+Les trames sont des fichiers YAML du dossier [`questionnaires/`](questionnaires), converties en JSON embarqué par `tools/export_trames.py`.
+
+| Trame | Questions | Sections |
+|---|---|---|
+| Cycle achats | 52 | 10 |
+| Cycle paie et personnel | 51 | 10 |
+| Cycle trésorerie | 50 | 10 |
+| Prise de connaissance — entité et contrôle interne | 20 | 4 |
+
+Chaque question porte : la formulation à l'oral, la **réponse attendue** (ce qui prouve que la réponse est complète), une **relance**, les **mots-clés** utilisés pour la détection automatique, et les pièces justificatives à demander.
+
+La trame de prise de connaissance suit la démarche de la **NEP-315** (prise de connaissance de l'entité et de son environnement, identification et évaluation des risques) et les thèmes des outils CNCC correspondants. Aucun document CNCC n'est reproduit ici : les trames sont des questionnaires de travail rédigés pour l'application.
+
+## Qualité des données
+
+```bash
+python3 docs/verifier_trames.py      # structure, identifiants, mots-clés, doublons, longueur des questions
+python3 tools/export_trames.py       # YAML → assets JSON de l'application
 ```
-questionnaires/*.yaml ──► QuestionnaireEngine ──► EtatQuestions (à poser/évoquée/répondue/N-A)
-                                   ▲
-transcription live (whisper) ──► Apparieur ──► citations horodatées + confiance
-                                   │
-                                   └──► RapportSeance (Word/PDF + citations + reste à poser)
+
+## Compilation
+
+```bash
+export ANDROID_HOME=/chemin/vers/android-sdk
+./gradlew assembleDebug     # APK de test
+./gradlew assembleRelease   # APK signé (clé lue dans ~/.secrets/keystores-android/)
 ```
 
-## Maquette d'interface
+L'APK de production est publié dans les [releases](../../releases).
 
-`docs/maquette.html` : maquette cliquable (transcription simulée, questions qui se cochent, reste à poser, relance suggérée). Ouvrir le fichier dans un navigateur.
+## Feuille de route
 
-## État du projet
+- **v1.1** : moteur de transcription locale whisper.cpp (comme `transcripto-stream`) en remplacement du moteur système, pour un fonctionnement entièrement hors ligne.
+- **v1.2** : deuxième niveau d'appariement (embeddings locaux) pour détecter une réponse formulée sans les mots-clés de la trame, et arbitrage par un modèle local.
+- **v1.3** : trames ventes, stocks et immobilisations ; reprise d'une séance interrompue ; historique des séances par dossier.
+- **v2** : distribution des trames depuis le cabinet, sans republier l'application.
 
-- Cadrage validé le 18/09/2026 (décisions en tête de `docs/SPEC.md`) : application distincte alimentée par le moteur audio de `transcripto-stream`, co-pilote complet, aucune infrastructure en v1, audio au choix en fin de séance.
-- Dépôt initialisé le 18/09/2026 : spécification, maquette d'interface, premières trames types (achats, paie, trésorerie).
-- Prochaine étape : compléter la bibliothèque de trames (ventes, immobilisations, stocks, entretien de prise de connaissance), puis extraire le moteur audio en module partagé et construire la première version testable sur une séance réelle de 45 minutes.
-- Aucun code applicatif avant validation des trames et de l'interface.
+## Licence
+
+Code sous licence MIT (voir `LICENSE`). Les trames de questionnaires sont des documents de travail du cabinet, libres d'adaptation.

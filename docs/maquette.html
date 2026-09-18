@@ -6,9 +6,11 @@
 <title>Copilote Contrôle Interne — maquette de séance</title>
 <style>
   :root{
-    --fond:#f5f7fa; --carte:#ffffff; --bord:#dfe4ec; --texte:#182231; --doux:#5d6b80;
-    --accent:#1f5fd0; --vert:#12793f; --vert-fond:#e7f6ec; --ambre:#9a6200; --ambre-fond:#fdf3dd;
-    --gris:#eceff4; --rouge:#b3261e;
+    /* Charte CNCC : bleu #004787, terracotta #D66C54 */
+    --fond:#F6F8FA; --carte:#ffffff; --bord:#D0D7DE; --texte:#1F2328; --doux:#495672;
+    --accent:#004787; --accent-clair:#D5E0ED; --terracotta:#D66C54;
+    --vert:#116329; --vert-fond:#E7F4EA; --ambre:#8A5A00; --ambre-fond:#FDF3DD;
+    --gris:#EEF1F9; --rouge:#B3261E;
   }
   *{box-sizing:border-box}
   body{margin:0;font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--fond);color:var(--texte)}
@@ -22,14 +24,14 @@
   .chrono{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:600}
   .prog{margin-top:9px;display:flex;align-items:center;gap:10px}
   .barre{flex:1;height:8px;border-radius:99px;background:var(--gris);overflow:hidden}
-  .barre>i{display:block;height:100%;width:0%;background:linear-gradient(90deg,#1f5fd0,#3f8ae0);transition:width .4s}
+  .barre>i{display:block;height:100%;width:0%;background:linear-gradient(90deg,#004787,#4060AF);transition:width .4s}
   main{display:grid;grid-template-columns:minmax(320px,1.05fr) minmax(320px,1fr);gap:14px;padding:14px;max-width:1240px;margin:0 auto}
   .carte{background:var(--carte);border:1px solid var(--bord);border-radius:12px;padding:12px}
   h2{font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--doux);margin:0 0 10px}
   .section{margin-bottom:14px}
   .section>h3{font-size:13px;margin:0 0 6px;color:var(--accent);text-transform:none}
   .q{border:1px solid var(--bord);border-radius:10px;padding:9px 10px;margin-bottom:8px;background:#fff}
-  .q.demande{border-color:var(--accent);box-shadow:0 0 0 3px #1f5fd018}
+  .q.demande{border-color:var(--accent);box-shadow:0 0 0 3px #00478718}
   .q.repondue{background:var(--vert-fond);border-color:#bfe4cd}
   .q.evoquee{background:var(--ambre-fond);border-color:#f0dcae}
   .q.sans_objet{opacity:.55;text-decoration:line-through}
@@ -39,7 +41,7 @@
   .etat.repondue{background:#cdeed9;color:var(--vert)}
   .etat.evoquee{background:#f7e3b8;color:var(--ambre)}
   .etat.sans_objet{background:#e6e9ef;color:var(--doux)}
-  .cit{margin-top:7px;padding-left:9px;border-left:3px solid #bfe4cd;color:#33513f;font-size:13px}
+  .cit{margin-top:7px;padding-left:9px;border-left:3px solid #bfe4cd;color:#116329;font-size:13px}
   .cit small{display:block;color:var(--doux);font-size:11px}
   .relance{margin-top:7px;font-size:13px;color:var(--ambre)}
   .qm{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}

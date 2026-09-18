@@ -1,72 +1,295 @@
-# Questionnaire de démonstration — contrôle interne du cycle trésorerie.
 nom: Contrôle interne — cycle trésorerie
-version: 1.0
+version: 2.0
 source: Trame type cabinet (à valider)
-duree_cible_min: 35
-participants_attendus: [Gérant, Comptable, Responsable administratif]
+duree_cible_min: 55
+participants_attendus: [Gérant, Comptable, Responsable administratif et financier]
 
 sections:
-  - titre: Comptes bancaires et habilitations
+  - titre: Comptes bancaires, mandats et habilitations
     questions:
       - id: BAN-01
-        question: Qui est titulaire des pouvoirs sur les comptes bancaires, et à partir de quel montant un second signataire est-il requis ?
+        question: "Qui est titulaire des pouvoirs sur les comptes bancaires, et à partir de quel montant un second signataire est-il requis ?"
         attendu: Liste des signataires et seuils par compte
         relance: Est-ce formalisé auprès de la banque ?
         mots_cles: [signature, pouvoir, banque, seuil, double signature]
+        pieces: [mandat bancaire]
       - id: BAN-02
-        question: Existe-t-il des cartes bancaires et, si oui, qui les détient et quels sont les plafonds ?
-        attendu: Détenteurs, plafonds, justificatifs des dépenses
-        relance: Comment sont justifiés les retraits et paiements par carte ?
-        mots_cles: [carte bancaire, plafond, retrait, dépense]
+        question: "Tenez-vous un inventaire de tous les comptes bancaires ouverts, avec leur banque, leur objet et leur signataire ?"
+        attendu: Oui/non, date de mise à jour, exhaustivité de la liste
+        relance: Qui vérifie que la liste est complète et à jour ?
+        mots_cles: [inventaire, compte bancaire, liste, banque, à jour]
+        pieces: [liste des comptes bancaires]
       - id: BAN-03
-        question: Comment sont gérés les accès bancaires en ligne et les moyens d'authentification ?
-        attendu: Titulaires des accès, séparation des rôles, validation des virements
-        mots_cles: [accès en ligne, internet, validation virement, token]
+        question: "Qui détient les accès de banque en ligne, et comment sont-ils attribués et retirés ?"
+        attendu: Liste des habilités, procédure d'attribution et de retrait
+        relance: Comment retirez-vous l'accès quand une personne quitte l'entreprise ?
+        mots_cles: [accès en ligne, habilitation, identifiant, retrait, banque en ligne]
+      - id: BAN-04
+        question: "Qui décide de l'ouverture ou de la clôture d'un compte bancaire, et avec quelle autorisation ?"
+        attendu: Nom du décideur et formalisation de l'autorisation
+        relance: Y a-t-il une trace écrite de cette décision ?
+        mots_cles: [ouverture, clôture, compte, autorisation, décision]
+      - id: BAN-05
+        question: "Comment les mandats bancaires sont-ils mis à jour lors d'un changement de dirigeant ou de signataire ?"
+        attendu: Procédure de mise à jour et délai constaté
+        relance: Quand le dernier changement a-t-il été répercuté auprès de la banque ?
+        mots_cles: [mandat, changement, dirigeant, signataire, mise à jour]
+        pieces: [mandat bancaire]
 
-  - titre: Règlements et séparation des tâches
+  - titre: Séparation des tâches et préparation des règlements
     questions:
-      - id: REG-01
-        question: Comment sont préparés et validés les fichiers de virements fournisseurs ?
-        attendu: Préparation, contrôle, nombre de valideurs
-        relance: Une seule personne peut-elle préparer et valider un virement ?
-        mots_cles: [virement, fichier, validation, fournisseur]
-      - id: REG-02
-        question: Qui saisit les règlements en comptabilité et qui contrôle cette saisie ?
-        attendu: Séparation saisie / contrôle
-        mots_cles: [saisie, règlement, rapprochement, contrôle]
-      - id: REG-03
-        question: Le rapprochement bancaire est-il réalisé mensuellement, par qui, et comment est-il validé ?
-        attendu: Responsable, fréquence, validation, traitement des écarts
-        relance: Combien d'écarts non justifiés à ce jour ?
-        mots_cles: [rapprochement, relevé bancaire, écart, mensuel]
+      - id: SEP-01
+        question: "La personne qui prépare un virement est-elle différente de celle qui le valide en banque ?"
+        attendu: Oui/non, détail des rôles pour un virement type
+        relance: Une seule personne peut-elle à la fois préparer et valider ?
+        mots_cles: [préparation, validation, virement, séparation, rôles]
+      - id: SEP-02
+        question: "Qui saisit les règlements en comptabilité, et qui contrôle cette saisie ?"
+        attendu: Séparation saisie / contrôle, nom des personnes
+        relance: Comment est matérialisé ce contrôle ?
+        mots_cles: [saisie, règlement, contrôle, comptabilité, séparation]
+      - id: SEP-03
+        question: "Comment est préparé le fichier de virements fournisseurs, et qui en vérifie le contenu avant envoi ?"
+        attendu: Étapes de préparation, contrôle des RIB et montants, valideur
+        relance: Comparez-vous le total du fichier au journal des achats ?
+        mots_cles: [fichier, virement fournisseur, RIB, contrôle, total]
+      - id: SEP-04
+        question: "Comment sont vérifiés les coordonnées bancaires d'un nouveau bénéficiaire avant le premier paiement ?"
+        attendu: Procédure de contrôle du RIB et double validation
+        relance: Qui confirme que le RIB n'a pas été modifié frauduleusement ?
+        mots_cles: [bénéficiaire, RIB, coordonnées, premier paiement, vérification]
+      - id: SEP-05
+        question: "Les personnes qui encaissent sont-elles distinctes de celles qui enregistrent les paiements ?"
+        attendu: Oui/non, répartition des tâches encaissement / enregistrement
+        relance: Donnez un exemple sur une semaine type.
+        mots_cles: [encaissement, enregistrement, séparation, caisse, tâches]
 
-  - titre: Prévisions et suivi
+  - titre: Encaissements et moyens de paiement clients
+    questions:
+      - id: ENC-01
+        question: "Quels moyens de paiement acceptez-vous de vos clients, et qui encaisse chaque type ?"
+        attendu: Liste des moyens (virement, chèque, carte, espèces) et responsables
+        relance: Y a-t-il des moyens de paiement que vous refusez ?
+        mots_cles: [moyen de paiement, virement, chèque, carte, espèces]
+      - id: ENC-02
+        question: "Quel est le circuit des chèques reçus, de leur réception jusqu'à leur remise en banque ?"
+        attendu: Étapes, responsable, délai de remise
+        relance: Où sont conservés les chèques en attente de remise ?
+        mots_cles: [chèque, réception, remise en banque, circuit, endossement]
+      - id: ENC-03
+        question: "Qui manipule les espèces, et comment leur encaissement est-il tracé ?"
+        attendu: Personne habilitée, registre de caisse ou équivalent
+        relance: Existe-t-il un rapprochement entre caisse et comptabilité ?
+        mots_cles: [espèces, caisse, encaissement, traçabilité, registre]
+        pieces: [journal de caisse]
+      - id: ENC-04
+        question: "Comment sont lettrées les créances clients et rapprochées des encaissements reçus ?"
+        attendu: Méthode de lettrage, fréquence, responsable
+        relance: Que faites-vous d'un règlement reçu sans facture identifiée ?
+        mots_cles: [lettrage, créance, client, rapprochement, règlement]
+      - id: ENC-05
+        question: "Les encaissements sont-ils enregistrés en comptabilité le jour même de leur réception ?"
+        attendu: Délai d'enregistrement constaté et responsable
+        relance: Qu'est-ce qui peut retarder cet enregistrement ?
+        mots_cles: [enregistrement, jour même, encaissement, délai, comptabilité]
+
+  - titre: Rapprochements bancaires
+    questions:
+      - id: RAP-01
+        question: "À quelle fréquence réalisez-vous le rapprochement entre vos relevés et votre comptabilité ?"
+        attendu: Fréquence effective, responsable, outil utilisé
+        relance: Ce rythme est-il tenu même en période de forte activité ?
+        mots_cles: [rapprochement bancaire, relevé, fréquence, comptabilité, mensuel]
+      - id: RAP-02
+        question: "Le rapprochement bancaire est-il réalisé par une personne qui ne saisit pas les règlements ?"
+        attendu: Oui/non, nom de la personne, séparation des tâches
+        relance: Qui le fait précisément chez vous ?
+        mots_cles: [rapprochement, saisie, séparation, indépendance]
+      - id: RAP-03
+        question: "Comment sont traités les écarts ou suspens identifiés lors du rapprochement ?"
+        attendu: Circuit de traitement, délai, personne responsable
+        relance: Quel est le plus ancien suspens encore ouvert aujourd'hui ?
+        mots_cles: [écart, suspens, écart de rapprochement, traitement, délai]
+      - id: RAP-04
+        question: "Comment sont rapprochés les encaissements clients avec les mouvements figurant au relevé ?"
+        attendu: Méthode de rapprochement des encaissements, traces
+        relance: Comment identifiez-vous un encaissement dont le libellé est peu explicite ?
+        mots_cles: [encaissement client, rapprochement, relevé, libellé]
+      - id: RAP-05
+        question: "Le rapprochement bancaire est-il validé par un responsable, et en gardez-vous une trace ?"
+        attendu: Valideur, preuve de validation, archivage des états
+        relance: Montrez-moi le dernier état de rapprochement validé.
+        mots_cles: [validation, responsable, état de rapprochement, archivage, preuve]
+        pieces: [état de rapprochement bancaire]
+
+  - titre: Instruments de paiement, cartes et frais bancaires
+    questions:
+      - id: INS-01
+        question: "Quelles cartes bancaires existent, qui les détient, et quels sont leurs plafonds ?"
+        attendu: Liste des cartes, détenteurs, plafonds, usage autorisé
+        relance: Les plafonds ont-ils été revus récemment ?
+        mots_cles: [carte bancaire, détenteur, plafond, retrait, paiement]
+      - id: INS-02
+        question: "Comment les dépenses payées par carte sont-elles justifiées et rattachées à leur objet ?"
+        attendu: Justificatif exigé, rapprochement avec le relevé, responsable
+        relance: Que se passe-t-il si un justificatif manque ?
+        mots_cles: [carte, justificatif, dépense, relevé, rattachement]
+      - id: INS-03
+        question: "Comment sont gérés les chéquiers : qui les détient, comment sont-ils rangés et suivis ?"
+        attendu: Détenteurs, lieu de conservation, suivi des numéros
+        relance: Avez-vous déjà constaté la perte d'un chéquier ?
+        mots_cles: [chéquier, détention, rangement, suivi, numéro]
+      - id: INS-04
+        question: "Comment sont contrôlés les frais bancaires et les commissions prélevées sur vos comptes ?"
+        attendu: Contrôle périodique, personne responsable, contestations
+        relance: À quand remonte la dernière vérification des frais ?
+        mots_cles: [frais bancaires, commission, contrôle, prélèvement, contestation]
+      - id: INS-05
+        question: "Utilisez-vous d'autres instruments de paiement, comme des virements internationaux ou des cartes d'affaires ?"
+        attendu: Inventaire des instruments, conditions d'utilisation, autorisations
+        relance: Qui peut déclencher un virement international ?
+        mots_cles: [virement international, carte affaires, instrument, autorisation]
+
+  - titre: Prévisionnel et pilotage de la trésorerie
     questions:
       - id: PRE-01
-        question: Existe-t-il un suivi de trésorerie prévisionnel, à quelle fréquence est-il mis à jour ?
-        attendu: Outil, horizon, responsable
-        mots_cles: [prévisionnel, trésorerie, budget, plan de trésorerie]
+        question: "Disposez-vous d'un prévisionnel de trésorerie, sur quel horizon et mis à jour à quelle fréquence ?"
+        attendu: Existence de l'outil, horizon, fréquence de mise à jour
+        relance: Qui est chargé de le mettre à jour ?
+        mots_cles: [prévisionnel, trésorerie, horizon, mise à jour, plan de trésorerie]
+        pieces: [dernier prévisionnel de trésorerie]
       - id: PRE-02
-        question: Comment sont identifiées les difficultés de trésorerie ou les ruptures prévisibles ?
-        attendu: Indicateurs et seuils d'alerte
-        mots_cles: [alerte, découvert, difficulté, rupture]
+        question: "Comment anticipez-vous les échéances importantes de dettes et de créances ?"
+        attendu: Outil ou calendrier des échéances, responsable
+        relance: Comment êtes-vous alerté avant une échéance ?
+        mots_cles: [échéance, dette, créance, calendrier, alerte]
       - id: PRE-03
-        question: Comment sont gérés les comptes d'attente et les opérations non affectées en banque ?
-        attendu: Délai de traitement, responsable
-        relance: Quel est le solde de ces comptes aujourd'hui ?
-        mots_cles: [compte d'attente, non affecté, en attente, 471, 472]
+        question: "Comment identifiez-vous à l'avance un risque de découvert ou de rupture de trésorerie ?"
+        attendu: Indicateurs et seuils d'alerte utilisés
+        relance: Qui est prévenu en premier en cas d'alerte ?
+        mots_cles: [découvert, rupture, alerte, indicateur, seuil]
+      - id: PRE-04
+        question: "Qui pilote la trésorerie au quotidien et arbitre entre les paiements à prioriser ?"
+        attendu: Nom du pilote, règles de priorisation des paiements
+        relance: Comment arbitrez-vous entre deux fournisseurs à payer le même jour ?
+        mots_cles: [pilotage, arbitrage, priorisation, paiement, quotidien]
+      - id: PRE-05
+        question: "Le prévisionnel est-il confronté aux réalisations réelles, et qu'en faites-vous ?"
+        attendu: Écart prévisionnel / réel, analyse, actions correctives
+        relance: À quand remonte la dernière comparaison ?
+        mots_cles: [prévisionnel, réel, écart, analyse, comparaison]
 
-  - titre: Placements, financements et anomalies
+  - titre: Financements, placements et covenants
     questions:
       - id: FIN-01
-        question: Existe-t-il des placements, comptes à terme ou lignes de crédit, et comment sont-ils suivis ?
-        attendu: Inventaire, conditions, suivi des échéances
-        mots_cles: [placement, compte à terme, crédit, emprunt, ligne]
+        question: "Tenez-vous un inventaire de vos emprunts et lignes de crédit, avec leurs conditions et échéances ?"
+        attendu: Inventaire complet, taux, échéances, responsable du suivi
+        relance: Qui vérifie que cet inventaire est complet ?
+        mots_cles: [emprunt, ligne de crédit, inventaire, échéance, taux]
+        pieces: [tableau des emprunts]
       - id: FIN-02
-        question: Comment sont contrôlés les frais bancaires et les intérêts ?
-        attendu: Contrôle périodique, contestation
-        mots_cles: [frais bancaires, intérêts, commission]
+        question: "Qui décide de souscrire un nouvel emprunt ou de renégocier une ligne existante ?"
+        attendu: Nom du décideur, processus d'autorisation
+        relance: Existe-t-il une trace écrite de cette décision ?
+        mots_cles: [emprunt, renégociation, décision, autorisation, souscription]
       - id: FIN-03
-        question: Comment sont traitées les anomalies bancaires (rejet de prélèvement, impayé, fraude suspectée) ?
-        attendu: Circuit d'alerte et traces
-        mots_cles: [rejet, impayé, anomalie, fraude, opposition]
+        question: "Disposez-vous de placements ou de comptes à terme, et comment sont-ils suivis ?"
+        attendu: Inventaire des placements, conditions, suivi des échéances
+        relance: Qui arbitre les placements et selon quels critères ?
+        mots_cles: [placement, compte à terme, épargne, suivi, échéance]
+      - id: FIN-04
+        question: "Comment suivez-vous le respect de vos engagements bancaires ou covenants ?"
+        attendu: Suivi des ratios ou clauses, fréquence, responsable
+        relance: Avez-vous déjà reçu une demande de la banque à ce sujet ?
+        mots_cles: [covenant, engagement, banque, ratio, clause]
+      - id: FIN-05
+        question: "Comment sont suivis les intérêts et les remboursements de vos financements en comptabilité ?"
+        attendu: Comptabilisation, pointage des échéances, responsable
+        relance: Comment vérifiez-vous le tableau d'amortissement ?
+        mots_cles: [intérêt, remboursement, amortissement, échéance, comptabilisation]
+
+  - titre: Comptes d'attente et opérations non affectées
+    questions:
+      - id: ATT-01
+        question: "Quels comptes d'attente utilisez-vous, et comment les opérations y sont-elles affectées ?"
+        attendu: Liste des comptes d'attente, règles d'affectation
+        relance: Qui décide de l'affectation d'une opération ?
+        mots_cles: [compte d'attente, affectation, en attente, imputation]
+      - id: ATT-02
+        question: "Quel est le délai habituel de traitement d'une opération placée en compte d'attente ?"
+        attendu: Délai constaté, personne responsable de l'apurement
+        relance: Quel est le plus ancien élément encore en attente ?
+        mots_cles: [délai, traitement, apurement, ancienneté, en attente]
+      - id: ATT-03
+        question: "Qui suit les comptes d'attente, et à quelle fréquence en revoit-il le solde ?"
+        attendu: Responsable du suivi, fréquence de revue
+        relance: Quand le solde a-t-il été revu pour la dernière fois ?
+        mots_cles: [suivi, solde, revue, fréquence, responsable]
+      - id: ATT-04
+        question: "Comment justifiez-vous les soldes des comptes d'attente à la clôture ?"
+        attendu: Détail et justification de chaque solde, documentation
+        relance: Chaque solde est-il expliqué par une pièce ?
+        mots_cles: [clôture, solde, justification, détail, pièce]
+        pieces: [balance des comptes d'attente]
+      - id: ATT-05
+        question: "Comment sont traitées les opérations non affectées qui subsistent en fin d'exercice ?"
+        attendu: Règle de traitement, apurement ou reclassement, trace
+        relance: Que faites-vous d'un montant non identifié après investigation ?
+        mots_cles: [non affecté, fin d'exercice, apurement, reclassement, investigation]
+
+  - titre: Fraude, alertes et incidents
+    questions:
+      - id: FRA-01
+        question: "Comment détectez-vous une opération inhabituelle ou suspecte sur vos comptes bancaires ?"
+        attendu: Dispositif de détection, alertes bancaires, personne qui surveille
+        relance: Qui examine les relevés pour repérer ces opérations ?
+        mots_cles: [opération suspecte, inhabituel, détection, alerte, surveillance]
+      - id: FRA-02
+        question: "Comment sont traités les rejets de prélèvements, impayés ou incidents de paiement clients ?"
+        attendu: Circuit de traitement, délai, responsable
+        relance: Comment relancez-vous le client concerné ?
+        mots_cles: [rejet, prélèvement, impayé, incident, relance]
+      - id: FRA-03
+        question: "Quel est le circuit d'alerte en cas de suspicion de fraude interne ou externe sur la trésorerie ?"
+        attendu: Personne à alerter, escalade, traçabilité des faits
+        relance: À qui remonte-t-on une fraude présumée ?
+        mots_cles: [fraude, alerte, suspicion, escalade, signalement]
+      - id: FRA-04
+        question: "Comment procédez-vous en cas de perte ou de vol d'un moyen de paiement ?"
+        attendu: Procédure d'opposition, délai, personne habilitée
+        relance: Qui peut faire opposition auprès de la banque ?
+        mots_cles: [perte, vol, opposition, carte, chéquier]
+      - id: FRA-05
+        question: "Tenez-vous un registre des incidents de trésorerie et des actions correctives engagées ?"
+        attendu: Existence d'un suivi, nature des incidents, actions menées
+        relance: Quel a été le dernier incident consigné ?
+        mots_cles: [incident, registre, action corrective, suivi, trésorerie]
+
+  - titre: Clôture et justification des soldes bancaires
+    questions:
+      - id: CLO-01
+        question: "Comment justifiez-vous le solde de chaque compte bancaire en comptabilité à la clôture ?"
+        attendu: Rapprochement du solde comptable et du solde bancaire, preuve
+        relance: Tous les comptes sont-ils justifiés, même les moins utilisés ?
+        mots_cles: [solde, clôture, justification, rapprochement, compte bancaire]
+        pieces: [états de rapprochement de clôture]
+      - id: CLO-02
+        question: "Comment sont recensés les chèques émis non débités ou anciens à la clôture ?"
+        attendu: Liste des chèques en circulation, ancienneté, traitement
+        relance: Que faites-vous des chèques non présentés depuis longtemps ?
+        mots_cles: [chèque non débité, chèque en circulation, ancien, clôture]
+      - id: CLO-03
+        question: "Comment sont traités les virements internes ou transferts entre vos propres comptes en fin d'exercice ?"
+        attendu: Traçabilité des transferts, cohérence des soldes croisés
+        relance: Comment vérifiez-vous qu'aucun transfert n'est compté deux fois ?
+        mots_cles: [virement interne, transfert, compte à compte, fin d'exercice]
+      - id: CLO-04
+        question: "Qui valide la justification des soldes bancaires avant l'arrêté des comptes ?"
+        attendu: Nom du valideur, niveau de revue, trace de validation
+        relance: Le gérant revoit-il lui-même ces justifications ?
+        mots_cles: [validation, arrêté des comptes, solde, revue, gérant]
+      - id: CLO-05
+        question: "Comment assurez-vous la cohérence entre la trésorerie comptable et les soldes bancaires en fin de période ?"
+        attendu: Méthode de contrôle, écarts résiduels, responsable
+        relance: Quel écart, s'il existe, subsistait à la dernière clôture ?
+        mots_cles: [cohérence, trésorerie, solde bancaire, écart, fin de période]
