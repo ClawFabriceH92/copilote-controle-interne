@@ -1,0 +1,81 @@
+# Questionnaire de démonstration — contrôle interne du cycle achats.
+# Format de référence pour l'application. Un fichier = un questionnaire, versionné dans git.
+nom: Contrôle interne — cycle achats
+version: 1.0
+source: Procédure interne CI-ACH-01 (rév. 2026-01)
+duree_cible_min: 45
+participants_attendus: [Responsable achats, Comptable fournisseurs]
+
+sections:
+  - titre: Organisation et délégations
+    questions:
+      - id: ORG-01
+        question: Qui valide définitivement un engagement fournisseur, et à partir de quel seuil ?
+        attendu: Nom du valideur et seuil exprimé en euros
+        relance: Et au-delà de ce seuil, qui intervient ?
+        mots_cles: [seuil, validation, engagement, devis, bon de commande]
+        pieces: [matrice de délégations]
+      - id: ORG-02
+        question: Existe-t-il une matrice de délégations écrite et à jour ?
+        attendu: Oui/non, date de dernière mise à jour, lieu de classement
+        relance: Quand a-t-elle été mise à jour pour la dernière fois ?
+        mots_cles: [matrice, délégation, mise à jour]
+      - id: ORG-03
+        question: Qui remplace le valideur en cas d'absence, et comment est-ce formalisé ?
+        attendu: Nom du remplaçant et règle écrite
+        relance: Est-ce prévu par écrit quelque part ?
+        mots_cles: [absence, remplaçant, intérim, suppléant]
+
+  - titre: Séparation des tâches
+    questions:
+      - id: SEP-01
+        question: La personne qui commande est-elle différente de celle qui valide et de celle qui paie ?
+        attendu: Oui/non, avec le détail des rôles
+        relance: Donnez-moi un exemple concret sur une facture récente.
+        mots_cles: [séparation, commande, paiement, valide, saisie]
+      - id: SEP-02
+        question: Qui a accès à la création de fournisseurs dans l'outil, et comment le contrôle-t-on ?
+        attendu: Liste des profils habilités et contrôle réalisé
+        relance: Comment vérifiez-vous qu'aucun fournisseur n'a été créé sans accord ?
+        mots_cles: [création fournisseur, habilitations, accès, profil]
+      - id: SEP-03
+        question: Le rapprochement bancaire est-il fait par une personne qui ne saisit pas les règlements ?
+        attendu: Oui/non + nom
+        mots_cles: [rapprochement, relevé bancaire, saisie règlement]
+
+  - titre: Contrôles opérationnels et traçabilité
+    questions:
+      - id: CTO-01
+        question: Quel contrôle est fait entre le bon de commande, le bon de réception et la facture ?
+        attendu: Description du contrôle 3 voies et preuve conservée
+        relance: Que se passe-t-il si l'un des trois manque ?
+        mots_cles: [trois voies, rapprochement, réception, bon de commande, facture]
+      - id: CTO-02
+        question: Comment sont traitées les factures sans bon de commande ?
+        attendu: Procédure, seuil, validation dérogatoire
+        relance: Combien de cas de ce type sur les six derniers mois ?
+        mots_cles: [sans bon de commande, dérogation, hors circuit]
+      - id: CTO-03
+        question: Quels contrôles sont réalisés sur les prix et les quantités facturés ?
+        attendu: Nature du contrôle et périodicité
+        mots_cles: [prix, quantité, écart, tarif]
+      - id: CTO-04
+        question: Comment sont surveillés les fournisseurs inactifs ou les doublons de fiches ?
+        attendu: Outil ou revue périodique
+        mots_cles: [doublon, inactif, fichier fournisseur]
+
+  - titre: Clôture et anomalies
+    questions:
+      - id: CLO-01
+        question: Comment sont identifiées les factures non parvenues à la clôture ?
+        attendu: Source de l'information et responsable
+        relance: Qui décide du montant à provisionner ?
+        mots_cles: [facture non parvenue, FNP, provision, cut-off]
+      - id: CLO-02
+        question: Existe-t-il un état des litiges fournisseurs, et qui le suit ?
+        attendu: Oui/non, nom du responsable, périodicité
+        mots_cles: [litige, contestation, avoir, responsable]
+      - id: CLO-03
+        question: Comment sont traitées les anomalies détectées en cours d'année ?
+        attendu: Circuit de remontée et trace des corrections
+        mots_cles: [anomalie, correction, remontée, plan d'action]

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copilote Contrôle Interne — maquette de séance</title>
+<style>
+  :root{
+    --fond:#f5f7fa; --carte:#ffffff; --bord:#dfe4ec; --texte:#182231; --doux:#5d6b80;
+    --accent:#1f5fd0; --vert:#12793f; --vert-fond:#e7f6ec; --ambre:#9a6200; --ambre-fond:#fdf3dd;
+    --gris:#eceff4; --rouge:#b3261e;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--fond);color:var(--texte)}
+  header{background:var(--carte);border-bottom:1px solid var(--bord);padding:10px 14px;position:sticky;top:0;z-index:5}
+  .l1{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .titre{font-weight:700}
+  .sous{color:var(--doux);font-size:13px}
+  .pilule{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--gris);color:var(--doux);white-space:nowrap}
+  .pilule.rec{background:#fdecec;color:var(--rouge)}
+  .pilule.ok{background:var(--vert-fond);color:var(--vert)}
+  .chrono{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:600}
+  .prog{margin-top:9px;display:flex;align-items:center;gap:10px}
+  .barre{flex:1;height:8px;border-radius:99px;background:var(--gris);overflow:hidden}
+  .barre>i{display:block;height:100%;width:0%;background:linear-gradient(90deg,#1f5fd0,#3f8ae0);transition:width .4s}
+  main{display:grid;grid-template-columns:minmax(320px,1.05fr) minmax(320px,1fr);gap:14px;padding:14px;max-width:1240px;margin:0 auto}
+  .carte{background:var(--carte);border:1px solid var(--bord);border-radius:12px;padding:12px}
+  h2{font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--doux);margin:0 0 10px}
+  .section{margin-bottom:14px}
+  .section>h3{font-size:13px;margin:0 0 6px;color:var(--accent);text-transform:none}
+  .q{border:1px solid var(--bord);border-radius:10px;padding:9px 10px;margin-bottom:8px;background:#fff}
+  .q.demande{border-color:var(--accent);box-shadow:0 0 0 3px #1f5fd018}
+  .q.repondue{background:var(--vert-fond);border-color:#bfe4cd}
+  .q.evoquee{background:var(--ambre-fond);border-color:#f0dcae}
+  .q.sans_objet{opacity:.55;text-decoration:line-through}
+  .ql{display:flex;gap:8px;align-items:flex-start}
+  .ql b{font-weight:600}
+  .etat{font-size:11px;padding:2px 8px;border-radius:99px;background:var(--gris);color:var(--doux);white-space:nowrap;margin-left:auto}
+  .etat.repondue{background:#cdeed9;color:var(--vert)}
+  .etat.evoquee{background:#f7e3b8;color:var(--ambre)}
+  .etat.sans_objet{background:#e6e9ef;color:var(--doux)}
+  .cit{margin-top:7px;padding-left:9px;border-left:3px solid #bfe4cd;color:#33513f;font-size:13px}
+  .cit small{display:block;color:var(--doux);font-size:11px}
+  .relance{margin-top:7px;font-size:13px;color:var(--ambre)}
+  .qm{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+  button{font:inherit;font-size:13px;padding:6px 10px;border-radius:8px;border:1px solid var(--bord);background:#fff;color:var(--texte);cursor:pointer}
+  button.p{background:var(--accent);border-color:var(--accent);color:#fff}
+  button.s{background:transparent;color:var(--doux)}
+  .tr{max-height:52vh;overflow:auto}
+  .seg{margin-bottom:9px;padding:8px 9px;border-radius:9px;background:#f8fafc;border:1px solid #eaeef5}
+  .seg.actif{background:#eef4ff;border-color:#bcd2f5}
+  .seg .qui{font-size:11px;color:var(--doux);text-transform:uppercase;letter-spacing:.04em}
+  .seg .txt{font-size:14px}
+  .seg .coche{margin-top:5px;font-size:12px;color:var(--vert)}
+  .seg .flou{margin-top:5px;font-size:12px;color:var(--ambre)}
+  footer{border-top:1px solid var(--bord);background:var(--carte);padding:10px 14px;position:sticky;bottom:0}
+  .sugg{display:flex;gap:12px;align-items:center;flex-wrap:wrap;max-width:1240px;margin:0 auto}
+  .sugg .qid{font-weight:700;color:var(--accent)}
+  .sugg .quest{flex:1;min-width:220px}
+  .onglets{display:none}
+  @media (max-width:860px){
+    main{grid-template-columns:1fr;gap:0;padding:0}
+    .panneau{display:none;padding:10px}
+    .panneau.actif{display:block}
+    .onglets{display:flex;gap:6px;padding:8px 10px;background:var(--carte);border-bottom:1px solid var(--bord);position:sticky;top:56px;z-index:4}
+    .onglets button{flex:1}
+    .onglets button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="l1">
+    <div>
+      <div class="titre">Copilote Contrôle Interne — séance en cours</div>
+      <div class="sous">Dossier <b>SCI LES TILLEULS</b> · questionnaire <b>Contrôle interne achats v1.0</b> · participants : R. Marchand (achats), S. Adam (compta)</div>
+    </div>
+    <span class="pilule rec">⏺ Enregistrement</span>
+    <span class="pilule">whisper.cpp · local</span>
+    <span class="pilule ok">Aucune donnée envoyée</span>
+    <span class="chrono" id="chrono">00:12:40</span>
+    <button class="s" id="btn-pause" onclick="basculerPause()">Pause</button>
+  </div>
+  <div class="prog">
+    <span class="sous" id="prog-txt">0 / 13 questions traitées</span>
+    <span class="barre"><i id="prog-bar"></i></span>
+    <span class="sous" id="prog-reste">13 restantes</span>
+  </div>
+</header>
+
+<div class="onglets">
+  <button id="ong-q" class="on" onclick="onglet('q')">Questions</button>
+  <button id="ong-t" onclick="onglet('t')">Transcription</button>
+</div>
+
+<main>
+  <section class="carte panneau actif" id="pan-q">
+    <h2>Questionnaire — état en direct</h2>
+    <div id="liste"></div>
+  </section>
+
+  <section class="carte panneau" id="pan-t">
+    <h2>Transcription en direct</h2>
+    <div class="tr" id="transcription"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="sugg">
+    <span class="qid" id="sugg-id">—</span>
+    <span class="quest" id="sugg-txt">Séance prête.</span>
+    <button class="p" onclick="marquerSuggere('repondue')">Marquer répondue</button>
+    <button onclick="marquerSuggere('sans_objet')">Sans objet</button>
+    <button class="s" onclick="demarrer()">▶ Rejouer la démo</button>
+  </div>
+</footer>
+
+<script>
+const SECTIONS = [
+  { titre:"Organisation et délégations", q:[
+    { id:"ORG-01", t:"Qui valide définitivement un engagement fournisseur, et à partir de quel seuil ?", relance:"Et au-delà de ce seuil, qui intervient ?" },
+    { id:"ORG-02", t:"Existe-t-il une matrice de délégations écrite et à jour ?", relance:"Quand a-t-elle été mise à jour pour la dernière fois ?" },
+    { id:"ORG-03", t:"Qui remplace le valideur en cas d'absence, et comment est-ce formalisé ?", relance:"Est-ce prévu par écrit quelque part ?" } ]},
+  { titre:"Séparation des tâches", q:[
+    { id:"SEP-01", t:"La personne qui commande est-elle différente de celle qui valide et de celle qui paie ?", relance:"Donnez-moi un exemple sur une facture récente." },
+    { id:"SEP-02", t:"Qui a accès à la création de fournisseurs dans l'outil ?", relance:"Comment vérifiez-vous qu'aucun fournisseur n'est créé sans accord ?" },
+    { id:"SEP-03", t:"Le rapprochement bancaire est-il fait par une personne qui ne saisit pas les règlements ?", relance:"Qui le fait concrètement ce mois-ci ?" } ]},
+  { titre:"Contrôles opérationnels et traçabilité", q:[
+    { id:"CTO-01", t:"Quel contrôle est fait entre bon de commande, bon de réception et facture ?", relance:"Que se passe-t-il si l'un des trois manque ?" },
+    { id:"CTO-02", t:"Comment sont traitées les factures sans bon de commande ?", relance:"Combien de cas sur les six derniers mois ?" },
+    { id:"CTO-03", t:"Quels contrôles sont réalisés sur les prix et les quantités facturés ?", relance:"Quelle périodicité ?" },
+    { id:"CTO-04", t:"Comment sont surveillés les fournisseurs inactifs ou les doublons de fiches ?", relance:"Par quel moyen, et à quelle fréquence ?" } ]},
+  { titre:"Clôture et anomalies", q:[
+    { id:"CLO-01", t:"Comment sont identifiées les factures non parvenues à la clôture ?", relance:"Qui décide du montant à provisionner ?" },
+    { id:"CLO-02", t:"Existe-t-il un état des litiges fournisseurs, et qui le suit ?", relance:"Sur quel support est-il tenu ?" },
+    { id:"CLO-03", t:"Comment sont traitées les anomalies détectées en cours d'année ?", relance:"Existe-t-il une trace écrite des corrections ?" } ]}
+];
+
+// Séquence de démonstration : ce que le moteur entend et en déduit.
+const STEPS = [
+  { qui:"R. Marchand", t:"Pour les engagements courants, c'est moi qui valide jusqu'à 5 000 euros hors taxes, au-delà ça part au directeur financier.", q:"ORG-01", etat:"repondue", conf:"94 %" },
+  { qui:"S. Adam", t:"Oui, la matrice de délégations existe, on l'a mise à jour en janvier dernier, elle est rangée dans le dossier procédures.", q:"ORG-02", etat:"repondue", conf:"91 %" },
+  { qui:"R. Marchand", t:"En cas d'absence, c'est Madame Adam qui reprend... enfin, c'est l'usage, je ne crois pas que ce soit écrit quelque part.", q:"ORG-03", etat:"evoquee", conf:"68 %", note:"Réponse partielle : « je ne crois pas que ce soit écrit »" },
+  { qui:"S. Adam", t:"La commande c'est le service technique, la validation c'est Monsieur Marchand, et la saisie et le paiement c'est moi. Je ne commande jamais moi-même.", q:"SEP-01", etat:"repondue", conf:"96 %" },
+  { qui:"S. Adam", t:"Pour la création de fournisseurs, il n'y a que moi et la responsable administrative qui avons les droits. On contrôle une fois par an, enfin on vérifie la liste.", q:"SEP-02", etat:"repondue", conf:"89 %" },
+  { qui:"R. Marchand", t:"Les rapprochements bancaires, c'est Madame Adam qui les fait... et c'est elle aussi qui saisit les règlements, oui.", q:"SEP-03", etat:"evoquee", conf:"81 %", note:"Séparation des tâches à vérifier : même personne pour la saisie des règlements et le rapprochement" },
+  { qui:"R. Marchand", t:"On rapproche systématiquement le bon de commande, le bon de réception et la facture avant de payer. S'il manque une pièce, la facture est bloquée.", q:"CTO-01", etat:"repondue", conf:"95 %" },
+  { qui:"S. Adam", t:"Les factures sans bon de commande, on en a très peu, peut-être trois ou quatre dans l'année, et dans ce cas j'ai un accord écrit par mail du directeur.", q:"CTO-02", etat:"repondue", conf:"88 %" },
+  { qui:"R. Marchand", t:"Sur les prix, franchement on ne fait pas de contrôle systématique, on regarde surtout si ça correspond au devis initial.", q:"CTO-03", etat:"evoquee", conf:"72 %", note:"Contrôle des prix non systématique : point à creuser" }
+];
+
+const etats = {};
+SECTIONS.forEach(s => s.q.forEach(q => etats[q.id] = { etat:"a_poser", cit:null, ts:null, conf:null, note:null }));
+let index = 0, enPause = false, timer = null, secondes = 760;
+
+function fmt(sec){ const m = String(Math.floor(sec/60)).padStart(2,"0"); const s = String(sec%60).padStart(2,"0"); return "00:" + m + ":" + s; }
+
+function rendre(){
+  const c = document.getElementById("liste"); c.innerHTML = "";
+  SECTIONS.forEach(sec => {
+    const d = document.createElement("div"); d.className = "section";
+    const t = document.createElement("h3"); t.textContent = sec.titre; d.appendChild(t);
+    sec.q.forEach(q => {
+      const e = etats[q.id];
+      const bloc = document.createElement("div");
+      bloc.className = "q " + e.etat + (q.id === idSuggere() ? " demande" : "");
+      const libelle = { a_poser:"à poser", repondue:"répondue", evoquee:"évoquée", sans_objet:"sans objet" }[e.etat];
+      let html = '<div class="ql"><span><b>' + q.id + '</b> · ' + q.t + '</span><span class="etat ' + e.etat + '">' + libelle + '</span></div>';
+      if (e.cit) html += '<div class="cit">« ' + e.cit + ' »<small>' + e.ts + ' · segment ' + e.seg + ' · confiance ' + e.conf + '</small></div>';
+      if (e.note && e.etat === "evoquee") html += '<div class="relance">⚠ ' + e.note + '<br>Relance proposée : « ' + q.relance + ' »</div>';
+      html += '<div class="qm"><button class="p" onclick="marquer(\'' + q.id + '\',\'repondue\')">Marquer répondue</button>' +
+              '<button onclick="marquer(\'' + q.id + '\',\'sans_objet\')">Sans objet</button>' +
+              '<button class="s" onclick="marquer(\'' + q.id + '\',\'a_poser\')">Réouvrir</button></div>';
+      bloc.innerHTML = html;
+      d.appendChild(bloc);
+    });
+    c.appendChild(d);
+  });
+  const total = 13, faites = Object.values(etats).filter(e => e.etat === "repondue" || e.etat === "sans_objet").length;
+  document.getElementById("prog-txt").textContent = faites + " / " + total + " questions traitées";
+  document.getElementById("prog-bar").style.width = (100*faites/total).toFixed(0) + "%";
+  document.getElementById("prog-reste").textContent = (total - faites) + " restantes";
+  const s = idSuggere();
+  if (s) {
+    const q = SECTIONS.flatMap(x => x.q).find(x => x.id === s);
+    document.getElementById("sugg-id").textContent = s;
+    document.getElementById("sugg-txt").textContent = q.t + (etats[s].etat === "evoquee" ? " — relance : « " + q.relance + " »" : "");
+  } else {
+    document.getElementById("sugg-id").textContent = "Terminé";
+    document.getElementById("sugg-txt").textContent = "Toutes les questions traitées — passer à la revue de séance.";
+  }
+}
+
+function idSuggere(){
+  const plat = SECTIONS.flatMap(s => s.q);
+  const ev = plat.find(q => etats[q.id].etat === "evoquee");
+  if (ev) return ev.id;
+  const prem = plat.find(q => etats[q.id].etat === "a_poser");
+  return prem ? prem.id : null;
+}
+
+function marquer(id, etat){
+  etats[id].etat = etat;
+  if (etat === "repondue" && !etats[id].cit) { etats[id].cit = "coché manuellement par le collaborateur"; etats[id].ts = fmt(secondes); etats[id].seg = "—"; etats[id].conf = "manuel"; }
+  rendre();
+}
+
+function marquerSuggere(etat){ const id = idSuggere(); if (id) marquer(id, etat); }
+
+function ajouterSegment(step){
+  const tr = document.getElementById("transcription");
+  document.querySelectorAll(".seg.actif").forEach(el => el.classList.remove("actif"));
+  const d = document.createElement("div"); d.className = "seg actif";
+  let html = '<div class="qui">' + step.qui + ' · ' + fmt(secondes) + '</div><div class="txt">' + step.t + '</div>';
+  d.innerHTML = html;
+  tr.appendChild(d);
+  if (step.q){
+    const e = etats[step.q];
+    e.etat = step.etat; e.cit = step.t; e.ts = fmt(secondes); e.conf = step.conf; e.seg = String(index+1); e.note = step.note || null;
+    const info = document.createElement("div");
+    info.className = step.etat === "repondue" ? "coche" : "flou";
+    info.textContent = step.etat === "repondue"
+      ? "✓ " + step.q + " marquée répondue (citation enregistrée, confiance " + step.conf + ")"
+      : "~ " + step.q + " évoquée, réponse incomplète (confiance " + step.conf + ")";
+    d.appendChild(info);
+    rendre();
+  }
+  tr.scrollTop = tr.scrollHeight;
+  index++;
+}
+
+function pas(){
+  if (index >= STEPS.length){ clearInterval(timer); timer = null; return; }
+  const s = STEPS[index];
+  secondes += 42;
+  document.getElementById("chrono").textContent = fmt(secondes);
+  ajouterSegment(s);
+}
+
+function demarrer(){
+  clearInterval(timer); index = 0; secondes = 760;
+  document.getElementById("transcription").innerHTML = "";
+  SECTIONS.forEach(s => s.q.forEach(q => etats[q.id] = { etat:"a_poser", cit:null, ts:null, conf:null, note:null }));
+  rendre();
+  timer = setInterval(pas, 2600);
+}
+
+function basculerPause(){
+  if (timer){ clearInterval(timer); timer = null; document.getElementById("btn-pause").textContent = "Reprendre"; document.querySelector(".pilule.rec").textContent = "⏸ En pause"; }
+  else { timer = setInterval(pas, 2600); document.getElementById("btn-pause").textContent = "Pause"; document.querySelector(".pilule.rec").textContent = "⏺ Enregistrement"; }
+}
+
+function onglet(quel){
+  document.getElementById("pan-q").classList.toggle("actif", quel === "q");
+  document.getElementById("pan-t").classList.toggle("actif", quel === "t");
+  document.getElementById("ong-q").classList.toggle("on", quel === "q");
+  document.getElementById("ong-t").classList.toggle("on", quel === "t");
+}
+
+rendre();
+demarrer();
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# build / IDE
+build/
+.gradle/
+local.properties
+*.iml
+.idea/
+*.apk
+*.keystore
+*.jks
+__pycache__/
+*.pyc
+.venv/
+docs/apercu-*.png
+# Modèles STT/LLM (téléchargés à la demande, jamais versionnés)
+models/
+*.bin
+*.gguf
+*.onnx
